@@ -1,0 +1,20 @@
+@import "reset";
+@import "variables/global";
+@import "themes/normal";
+@import "themes/accessibility";
+
+body {
+    width: 100%;
+    position: relative;
+    overflow-x: hidden;
+}
+
+#root {
+    width: 100%;
+    background: var(--white);
+}
+
+.app {
+    min-width: 1600px;
+    position: relative;
+}

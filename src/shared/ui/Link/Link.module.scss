@@ -1,0 +1,17 @@
+.Link {
+    cursor: pointer;
+}
+
+.clean {
+
+}
+
+.author {
+    font: var(--font-menu-desktop);
+    text-decoration: underline;
+    color: var(--blue-grey);
+    transition: all 0.2s linear;
+    &:hover {
+        color: var(--blue-light2);
+    }
+}

@@ -1,0 +1,117 @@
+.AppLink {
+
+}
+
+.arrow {
+    opacity: 0;
+    position: absolute;
+    transition: all 0.2s linear;
+}
+
+.textHovered {
+    .arrow {
+        opacity: 1;
+    }
+}
+
+.menu_arrow {
+    position: relative;
+    cursor: default;
+    width: 100%;
+    .text {
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        cursor: pointer;
+        z-index: 1;
+        display: inline;
+        color: var(--black);
+        font: var(--font-body-l-desktop);
+        transition: all 0.2s linear;
+        &:hover {
+            padding-left: 30px;
+            font-weight: 500;
+        }
+    }
+    display: flex;
+    align-items: center;
+}
+
+.menu_grey {
+    .text {
+        font: var(--font-menu-large-italic-desktop);
+        color: var(--grey-dark);
+        transition: all 0.1s linear;
+    }
+    &:hover {
+        .text {
+            opacity: 0;
+            animation: textItalic 0.5s linear forwards 0.1s;
+        }
+    }
+}
+
+.header_light {
+    .text {
+        font: var(--font-menu-desktop);
+        transition: all 0.3s ease-out;
+        color: var(--white);
+        opacity: 0.7;
+        &:hover {
+            opacity: 1;
+        }
+    }
+}
+
+.header_dark {
+    .text {
+        font: var(--font-menu-desktop);
+        transition: all 0.3s ease-out;
+        color: var(--grey-dark);
+        opacity: 0.7;
+        &:hover {
+            opacity: 1;
+        }
+    }
+}
+
+.footer {
+    .text {
+        font: var(--font-menu-desktop);
+        color: var(--white);
+        opacity: 0.7;
+        &:hover {
+            opacity: 1;
+        }
+    }
+}
+
+.textNotHovered {
+    .text {
+        animation: textGreyDark 0.7s ease-out forwards;
+    }
+}
+
+@keyframes textGreyDark {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.2;
+    }
+    100% {
+        opacity: 0.7;
+    }
+}
+
+@keyframes textItalic {
+    10% {
+        font-style: normal;
+        letter-spacing: 2px;
+    }
+    100% {
+        opacity: 1;
+        font-style: normal;
+        letter-spacing: 2px;
+    }
+}
