@@ -23,11 +23,13 @@ export type FlexGap =
     |'30'
     |'40'
     |'44'
+    |'50'
     | '64'
     | '80'
     | '85'
     | '105'
     | '124'
+    | '167'
     | '192';
 
 const justifyClasses: Record<FlexJustify, string> = {
@@ -63,11 +65,13 @@ const gapClasses: Record<FlexGap, string> = {
     30: cls.gap30,
     40: cls.gap40,
     44: cls.gap44,
+    50: cls.gap50,
     64: cls.gap64,
     80: cls.gap80,
     85: cls.gap85,
     105: cls.gap105,
     124: cls.gap124,
+    167: cls.gap167,
     192: cls.gap192,
 };
 

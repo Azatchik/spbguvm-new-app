@@ -5,6 +5,14 @@
     justify-content: center;
 }
 
+.isBtn {
+    cursor: pointer;
+}
+
+.isDisabled {
+    pointer-events: none;
+}
+
 .hoveredSvg {
     position: absolute;
     opacity: 0;

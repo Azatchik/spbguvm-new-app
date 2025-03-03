@@ -30,6 +30,7 @@ export const FooterContacts = memo((props: FooterContactsProps) => {
             <Text
                 theme={TextTheme.BLUE_GREY}
                 size={TextSize.BODY_DESKTOP}
+                opacity="60"
             >
                 {`[ ${t('Контакты')} ]`}
             </Text>

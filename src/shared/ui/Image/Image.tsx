@@ -1,6 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import React, { CSSProperties, memo } from 'react';
+import React, { CSSProperties, memo, useEffect } from 'react';
 import photoFrameLowerBlueCorner from 'shared/assets/icons/photo-frame-lower-blue-corner.svg';
 import photoFrameUpperBlueCorner from 'shared/assets/icons/photo-frame-upper-blue-corner.svg';
 import photoFrameLowerWhiteCorner from 'shared/assets/icons/photo-frame-lower-white-corner.svg';
@@ -57,7 +57,7 @@ export const Image = memo((props: ImageProps) => {
     return (
         <div
             style={style}
-            className={classNames(cls.Image, {}, [className])}
+            className={classNames(cls.Image, {}, [className, cls.switched])}
         >
             {frames && (
                 <Icon

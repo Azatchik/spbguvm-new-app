@@ -2,7 +2,7 @@ import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import { Link, LinkProps } from 'react-router-dom';
 import { memo, ReactNode } from 'react';
 import { useHover } from 'shared/lib/hooks/useHover/useHover';
-import arrowRightIcon from 'shared/assets/icons/arrow-right.svg';
+import arrowRightIcon from 'shared/assets/icons/arrow-right-for-btn.svg';
 import { Icon, IconTheme } from '../Icon/Icon';
 import cls from './AppLink.module.scss';
 
@@ -12,6 +12,7 @@ export enum AppLinkTheme {
     HEADER_DARK = 'header_dark',
     MENU_ARROW = 'menu_arrow',
     MENU_GREY = 'menu_grey',
+    CLEAN = 'clean',
 }
 
 interface AppLinkProps extends LinkProps {
@@ -28,8 +29,20 @@ export const AppLink = memo((props: AppLinkProps) => {
         theme,
         ...otherProps
     } = props;
-    const [isHoverText, bindIsHoverText] = useHover();
 
+    if (theme === AppLinkTheme.CLEAN) {
+        return (
+            <Link
+                to={to}
+                className={classNames(cls.AppLink, {}, [className, cls[theme]])}
+                {...otherProps}
+            >
+                {children}
+            </Link>
+        );
+    }
+
+    const [isHoverText, bindIsHoverText] = useHover();
     const mods: Mods = {
         [cls.textHovered]: isHoverText,
         [cls.textNotHovered]: !isHoverText && theme === AppLinkTheme.FOOTER,

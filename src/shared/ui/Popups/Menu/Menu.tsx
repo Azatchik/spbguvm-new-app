@@ -4,8 +4,8 @@ import React, {
 } from 'react';
 import { HStack, VStack } from 'shared/ui/Stack';
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
-import { Portal } from '../../Portal/Portal';
 import cls from './Menu.module.scss';
+import { Portal } from '../../Portal/Portal';
 
 interface Subsection {
     name: string;
@@ -47,7 +47,6 @@ export const Menu = memo((props: MenuProps) => {
         onClose,
         lazy = true,
     } = props;
-
     const [isClosing, setIsClosing] = useState(false);
     const [isMounted, setIsMounted] = useState(false);
     const timerRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>;
@@ -68,16 +67,16 @@ export const Menu = memo((props: MenuProps) => {
         }
     }, [onClose]);
 
+    const onContentClick = (e: React.MouseEvent) => {
+        e.stopPropagation();
+    };
+
     // Новые ссылки!!!
     const onKeyDown = useCallback((e: KeyboardEvent) => {
         if (e.key === 'Escape') {
             closeHandler();
         }
     }, [closeHandler]);
-
-    const onContentClick = (e: React.MouseEvent) => {
-        e.stopPropagation();
-    };
 
     useEffect(() => {
         if (isOpen) {
@@ -95,25 +94,15 @@ export const Menu = memo((props: MenuProps) => {
         [cls.isClosing]: isClosing,
     };
 
-    if (lazy && !isMounted) {
-        return (
-            <Portal>
-                <div className={classNames(cls.Menu, mods, [className])}>
-                    <div className={cls.overlay} onClick={closeHandler}>
-                        <div
-                            className={cls.content}
-                            onClick={onContentClick}
-                        />
-                    </div>
-                </div>
-            </Portal>
-        );
-    }
+    if (lazy && !isMounted) return null;
 
     return (
         <Portal>
             <div className={classNames(cls.Menu, mods, [className])}>
-                <div className={cls.overlay} onClick={closeHandler}>
+                <div
+                    className={cls.overlay}
+                    onClick={closeHandler}
+                >
                     <div
                         className={cls.content}
                         onClick={onContentClick}

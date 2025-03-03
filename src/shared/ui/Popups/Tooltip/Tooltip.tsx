@@ -1,6 +1,6 @@
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { HTMLAttributes } from 'react';
+import { HTMLAttributes, memo } from 'react';
 import cls from './Tooltip.module.scss';
 
 interface TooltipProps extends HTMLAttributes<HTMLDivElement> {

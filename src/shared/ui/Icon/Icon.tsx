@@ -13,6 +13,8 @@ interface IconProps extends HTMLAttributes<HTMLDivElement> {
     HoveredSvg?: React.VFC<React.SVGProps<SVGSVGElement>>;
     theme: IconTheme;
     onClick?: () => void;
+    isBtn?: boolean;
+    isDisabled?: boolean;
 }
 
 export const Icon = memo((props: IconProps) => {
@@ -21,11 +23,24 @@ export const Icon = memo((props: IconProps) => {
         Svg,
         HoveredSvg,
         theme,
+        isBtn = false,
+        isDisabled = false,
         ...otherProps
     } = props;
 
+    const classes = [
+        className,
+        cls[theme],
+        isBtn ? cls.isBtn : undefined,
+        isDisabled ? cls.isDisabled : undefined,
+    ];
+
     return (
-        <div className={classNames(cls.Icon, {}, [className, cls[theme]])} {...otherProps}>
+        <div
+            role={isBtn ? 'button' : undefined}
+            className={classNames(cls.Icon, {}, classes)}
+            {...otherProps}
+        >
             <Svg className={cls.svg} />
             {HoveredSvg && <HoveredSvg className={cls.hoveredSvg} />}
         </div>

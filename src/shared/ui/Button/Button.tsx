@@ -1,9 +1,9 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import {
-    CSSProperties, HTMLAttributes, memo, ReactNode,
+    CSSProperties, HTMLAttributes, memo, MutableRefObject, ReactNode, useLayoutEffect, useRef, useState,
 } from 'react';
-import ArrowRightIcon from 'shared/assets/icons/arrow-right.svg';
-import ArrowLeftIcon from 'shared/assets/icons/arrow-left.svg';
+import ArrowRightIcon from 'shared/assets/icons/arrow-right-for-btn.svg';
+import ArrowLeftIcon from 'shared/assets/icons/arrow-left-for-btn.svg';
 import cls from './Button.module.scss';
 
 export enum ButtonTheme {

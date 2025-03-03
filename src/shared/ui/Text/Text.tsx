@@ -1,6 +1,19 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import React, { memo, ReactNode } from 'react';
+import React, {
+    CSSProperties, HTMLAttributes, memo, ReactNode,
+} from 'react';
 import cls from './Text.module.scss';
+
+export type TextOpacity =
+    '80'
+    | '70'
+    | '60';
+
+const opacityClasses: Record<TextOpacity, string> = {
+    80: cls.opacity80,
+    70: cls.opacity70,
+    60: cls.opacity60,
+};
 
 export enum TextTheme {
     BLUE = 'blue',
@@ -43,12 +56,15 @@ export enum TextSize {
     MENU_LARGE_ITALIC_MEDIUM_DESKTOP = 'menu_large_italic_medium_desktop',
 }
 
-interface TextProps {
+interface TextProps extends HTMLAttributes<HTMLDivElement>{
     className?: string;
     children?: ReactNode;
     theme: TextTheme;
     align?: TextAlign;
     size: TextSize;
+    opacity?: TextOpacity;
+    width?: string;
+    height?: string;
 }
 
 type TextTagType = 'h1' | 'h2' | 'h3' | 'h4' | 'p'
@@ -81,15 +97,37 @@ export const Text = memo((props: TextProps) => {
         align = TextAlign.LEFT,
         size,
         children,
+        opacity,
+        width,
+        height,
+        ...otherProps
     } = props;
 
     const TextTag = mapSizeToTextTag[size];
     const isThemeHeader = theme === TextTheme.HEADER_LIGHT || theme === TextTheme.HEADER_DARK;
 
+    const classes = [
+        className,
+        cls[theme],
+        cls[size],
+        cls[align],
+        opacity && opacityClasses[opacity],
+    ];
+
+    const style: CSSProperties = {
+        width: width && `${width}px`,
+        height: height && `${height}px`,
+    };
+
     return (
-        <TextTag className={classNames(cls.Text, {}, [className, cls[theme], cls[size], cls[align]])} data-testid="TextTest">
+        <TextTag
+            className={classNames(cls.Text, {}, classes)}
+            data-testid="TextTest"
+            style={style}
+            {...otherProps}
+        >
             {isThemeHeader && (
-                <div className={cls.borderBottom} />
+                <span className={cls.borderBottom} />
             )}
             {children}
         </TextTag>

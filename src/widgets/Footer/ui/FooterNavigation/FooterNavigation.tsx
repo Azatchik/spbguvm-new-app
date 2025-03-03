@@ -22,6 +22,7 @@ export const FooterNavigation = memo((props: FooterNavigationProps) => {
             <Text
                 theme={TextTheme.BLUE_GREY}
                 size={TextSize.BODY_DESKTOP}
+                opacity="60"
             >
                 {`[ ${t('Навигация')} ]`}
             </Text>
