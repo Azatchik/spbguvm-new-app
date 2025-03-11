@@ -15,8 +15,12 @@ export const Mission = memo((props: MissionProps) => {
     const { t } = useTranslation();
 
     return (
-        <ContentWrapper className={classNames(cls.Mission, {}, [className])}>
+        <ContentWrapper
+            className={classNames(cls.Mission, {}, [className])}
+            ContentTag="section"
+        >
             <HStack
+                maxW
                 maxH
                 align="center"
                 justify="center"

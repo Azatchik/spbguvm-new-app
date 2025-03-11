@@ -3,6 +3,7 @@
 @import "themes/normal";
 @import "themes/accessibility";
 
+
 body {
     width: 100%;
     position: relative;
@@ -18,3 +19,29 @@ body {
     min-width: 1600px;
     position: relative;
 }
+
+.menu-open-body {
+    position: fixed;
+}
+
+.menu-open-content {
+    padding-right: 65px;
+}
+
+.menu-open-header {
+    right: 65px;
+}
+
+::-webkit-scrollbar {
+    width: 15px; /* Ширина скроллбара */
+}
+
+::-webkit-scrollbar-track {
+    background: white; /* Цвет дорожки скроллбара */
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888; /* Цвет ползунка скроллбара */
+    border-radius: 10px; /* Радиус скругления ползунка */
+}
+

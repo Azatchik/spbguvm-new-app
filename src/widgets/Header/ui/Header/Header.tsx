@@ -27,12 +27,17 @@ interface HeaderProps {
     headerTheme: HeaderTheme;
 }
 
+export const HEADER_ID = 'HEADER_ID';
+
 export const Header = memo((props: HeaderProps) => {
     const { className, headerTheme } = props;
     const { t } = useTranslation();
 
     return (
-        <div className={classNames(cls.Header, {}, [className, cls[headerTheme]])}>
+        <header
+            className={classNames(cls.Header, {}, [className, cls[headerTheme]])}
+            id={HEADER_ID}
+        >
             <VStack className={cls.headerWrapper}>
                 <HStack
                     className={cls.mainPanel}
@@ -109,6 +114,6 @@ export const Header = memo((props: HeaderProps) => {
                         : HeaderNavigatorTheme.DARK}
                 />
             </VStack>
-        </div>
+        </header>
     );
 });

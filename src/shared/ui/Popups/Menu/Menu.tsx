@@ -4,6 +4,7 @@ import React, {
 } from 'react';
 import { HStack, VStack } from 'shared/ui/Stack';
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
+import { useTranslation } from 'react-i18next';
 import cls from './Menu.module.scss';
 import { Portal } from '../../Portal/Portal';
 
@@ -34,7 +35,7 @@ interface MenuProps {
     isOpen?: boolean;
     onClose?: () => void;
     lazy?: boolean;
-    data: MenuData;
+    data?: MenuData;
 }
 
 const ANIMATION_DELAY = 600;
@@ -49,6 +50,7 @@ export const Menu = memo((props: MenuProps) => {
     } = props;
     const [isClosing, setIsClosing] = useState(false);
     const [isMounted, setIsMounted] = useState(false);
+    const { t } = useTranslation();
     const timerRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>;
 
     useEffect(() => {
@@ -94,7 +96,23 @@ export const Menu = memo((props: MenuProps) => {
         [cls.isClosing]: isClosing,
     };
 
-    if (lazy && !isMounted) return null;
+    if ((lazy && !isMounted) || !data) {
+        return (
+            <Portal>
+                <div className={classNames(cls.Menu, mods, [className])}>
+                    <div
+                        className={cls.overlay}
+                        onClick={closeHandler}
+                    >
+                        <div
+                            className={cls.content}
+                            onClick={onContentClick}
+                        />
+                    </div>
+                </div>
+            </Portal>
+        );
+    }
 
     return (
         <Portal>
@@ -109,84 +127,101 @@ export const Menu = memo((props: MenuProps) => {
                     >
                         <HStack className={cls.menuWrapper} justify="between" align="start">
                             <h2 className={cls.title}>
-                                {data.title.toUpperCase()}
+                                {t(data.title).toUpperCase()}
                             </h2>
                             <HStack className={cls.sectionsWrapper} align="start" maxH>
-
-                                <VStack className={cls.sectionMain} maxH gap="16">
-                                    {Object.values(data.section1).map((section) => (
-                                        <VStack align="start" gap={section.subsections.length > 0 ? '20' : undefined} maxW>
-                                            <AppLink
-                                                theme={AppLinkTheme.MENU_ARROW}
-                                                to={section.link}
-                                                className={cls.linkArrow}
-                                            >
-                                                {section.name}
-                                            </AppLink>
-                                            <VStack align="start" maxW className={cls.subsections} gap="16">
-                                                {section.subsections.map((subsection) => (
+                                {data.section1
+                                    ? (
+                                        <VStack className={cls.sectionMain} maxH gap="16">
+                                            {Object.values(data.section1).map((section) => (
+                                                <VStack align="start" gap={section.subsections.length > 0 ? '20' : undefined} maxW>
                                                     <AppLink
-                                                        theme={AppLinkTheme.MENU_GREY}
-                                                        to={subsection.link}
-                                                        className={cls.subsection}
+                                                        theme={AppLinkTheme.MENU_ARROW}
+                                                        to={section.link}
+                                                        className={cls.linkArrow}
                                                     >
-                                                        {subsection.name}
+                                                        {t(section.name)}
                                                     </AppLink>
-                                                ))}
-                                            </VStack>
+                                                    <VStack align="start" maxW className={cls.subsections} gap="16">
+                                                        {section.subsections.map((subsection) => (
+                                                            <AppLink
+                                                                theme={AppLinkTheme.MENU_GREY}
+                                                                to={subsection.link}
+                                                                className={cls.subsection}
+                                                            >
+                                                                {t(subsection.name)}
+                                                            </AppLink>
+                                                        ))}
+                                                    </VStack>
+                                                </VStack>
+                                            ))}
                                         </VStack>
-                                    ))}
-                                </VStack>
+                                    )
+                                    : (
+                                        <div className={cls.sectionMain} />
+                                    )}
 
-                                <VStack className={cls.sectionMain} maxH gap="16">
-                                    {Object.values(data.section2).map((section) => (
-                                        <VStack align="start" gap={section.subsections.length > 0 ? '20' : undefined} maxW>
-                                            <AppLink
-                                                theme={AppLinkTheme.MENU_ARROW}
-                                                to={section.link}
-                                                className={cls.linkArrow}
-                                            >
-                                                {section.name}
-                                            </AppLink>
-                                            <VStack align="start" maxW className={cls.subsections} gap="16">
-                                                {section.subsections.map((subsection) => (
+                                {data.section2
+                                    ? (
+                                        <VStack className={cls.sectionMain} maxH gap="16">
+                                            {Object.values(data.section2).map((section) => (
+                                                <VStack align="start" gap={section.subsections.length > 0 ? '20' : undefined} maxW>
                                                     <AppLink
-                                                        theme={AppLinkTheme.MENU_GREY}
-                                                        to={subsection.link}
-                                                        className={cls.subsection}
+                                                        theme={AppLinkTheme.MENU_ARROW}
+                                                        to={section.link}
+                                                        className={cls.linkArrow}
                                                     >
-                                                        {subsection.name}
+                                                        {t(section.name)}
                                                     </AppLink>
-                                                ))}
-                                            </VStack>
+                                                    <VStack align="start" maxW className={cls.subsections} gap="16">
+                                                        {section.subsections.map((subsection) => (
+                                                            <AppLink
+                                                                theme={AppLinkTheme.MENU_GREY}
+                                                                to={subsection.link}
+                                                                className={cls.subsection}
+                                                            >
+                                                                {t(subsection.name)}
+                                                            </AppLink>
+                                                        ))}
+                                                    </VStack>
+                                                </VStack>
+                                            ))}
                                         </VStack>
-                                    ))}
-                                </VStack>
+                                    )
+                                    : (
+                                        <div className={cls.sectionMain} />
+                                    )}
 
-                                <VStack className={cls.sectionMain} maxH gap="16">
-                                    {Object.values(data.section3).map((section) => (
-                                        <VStack align="start" gap={section.subsections.length > 0 ? '20' : undefined} maxW>
-                                            <AppLink
-                                                theme={AppLinkTheme.MENU_ARROW}
-                                                to={section.link}
-                                                className={cls.linkArrow}
-                                            >
-                                                {section.name}
-                                            </AppLink>
-                                            <VStack align="start" maxW className={cls.subsections} gap="16">
-                                                {section.subsections.map((subsection) => (
+                                {data.section3
+                                    ? (
+                                        <VStack className={cls.sectionMain} maxH gap="16">
+                                            {Object.values(data.section3).map((section) => (
+                                                <VStack align="start" gap={section.subsections.length > 0 ? '20' : undefined} maxW>
                                                     <AppLink
-                                                        theme={AppLinkTheme.MENU_GREY}
-                                                        to={subsection.link}
-                                                        className={cls.subsection}
+                                                        theme={AppLinkTheme.MENU_ARROW}
+                                                        to={section.link}
+                                                        className={cls.linkArrow}
                                                     >
-                                                        {subsection.name}
+                                                        {t(section.name)}
                                                     </AppLink>
-                                                ))}
-                                            </VStack>
+                                                    <VStack align="start" maxW className={cls.subsections} gap="16">
+                                                        {section.subsections.map((subsection) => (
+                                                            <AppLink
+                                                                theme={AppLinkTheme.MENU_GREY}
+                                                                to={subsection.link}
+                                                                className={cls.subsection}
+                                                            >
+                                                                {t(subsection.name)}
+                                                            </AppLink>
+                                                        ))}
+                                                    </VStack>
+                                                </VStack>
+                                            ))}
                                         </VStack>
-                                    ))}
-                                </VStack>
+                                    )
+                                    : (
+                                        <div className={cls.sectionMain} />
+                                    )}
                             </HStack>
                         </HStack>
                     </div>

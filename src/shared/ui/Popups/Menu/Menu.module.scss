@@ -43,7 +43,6 @@
 .menuWrapper {
     width: 100%;
     height: 100%;
-    box-shadow: 0 0 0.8px 0 var(--blue-grey);
 }
 
 .title {
@@ -54,16 +53,16 @@
 }
 
 .sectionsWrapper {
-    box-shadow: 0 0 0.8px 0 var(--blue-grey);
     width: 73%;
 }
 
 .sectionMain {
     color: var(--black);
     font: var(--font-body-l-desktop);
-    box-shadow: -1px 0 0.8px -1px var(--blue-grey);
+    box-shadow: -1px 0 1.6px -1px var(--blue-grey);
     padding: 20px 0 0 10px;
     width: 33.3%;
+    height: 100%;
 }
 
 .subsections {

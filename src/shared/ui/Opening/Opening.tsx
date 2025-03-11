@@ -21,8 +21,7 @@ export const Opening = memo((props: OpeningProps) => {
     return (
         <ContentWrapper
             className={classNames(cls.Opening, {}, [className])}
-            divide1H="813"
-            divide2H="765"
+            ContentTag="section"
         >
             <HStack
                 gap="28"

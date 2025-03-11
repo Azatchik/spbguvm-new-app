@@ -22,12 +22,11 @@ export const Footer = memo((props: FooterProps) => {
     return (
         <ContentWrapper
             className={classNames(cls.Footer, {}, [className])}
-            divide2H="724"
-            divide3H="724"
-            divide4H="724"
+            ContentTag="footer"
         >
             <HStack
-                gap="192"
+                maxW
+                justify="between"
                 align="center"
                 maxH
             >

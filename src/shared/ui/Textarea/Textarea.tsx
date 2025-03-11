@@ -6,11 +6,11 @@ import React, {
 import { Text, TextSize, TextTheme } from '../Text/Text';
 import { HStack } from '../Stack';
 import cls from './Textarea.module.scss';
-import { FlexGap, FlexJustify } from '../Stack/Flex/Flex';
+import { FlexJustify } from '../Stack/Flex/Flex';
 
 interface TextareaProps {
     className?: string;
-    gap?: FlexGap;
+    gap?: string;
     placeholder?: string;
     placeholderTheme?: TextTheme;
     onChange?: (value: string) => void;

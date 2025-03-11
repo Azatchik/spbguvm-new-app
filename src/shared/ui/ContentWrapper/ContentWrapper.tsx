@@ -4,57 +4,38 @@ import { memo, ReactNode } from 'react';
 import { HStack } from 'shared/ui/Stack';
 import cls from './ContentWrapper.module.scss';
 
+export type ContentTagList =
+    'section'
+    | 'footer'
+    | 'article';
+
 interface ContentWrapperProps {
     className?: string;
     children: ReactNode;
-    divide1H?: string;
-    divide2H?: string;
-    divide3H?: string;
-    divide4H?: string;
-    divide5H?: string;
+    ContentTag?: ContentTagList;
 }
+
+export const CONTENT_WRAPPER_ID = 'CONTENT_WRAPPER_ID';
 
 export const ContentWrapper = memo((props: ContentWrapperProps) => {
     const {
         className,
         children,
-        divide1H,
-        divide2H,
-        divide3H,
-        divide4H,
-        divide5H,
+        ContentTag = 'div',
     } = props;
     const { t } = useTranslation();
 
     return (
-        <HStack
+        <ContentTag
             className={classNames(cls.ContentWrapper, {}, [className])}
-            align="start"
-            justify="center"
+            id={CONTENT_WRAPPER_ID}
         >
-            <div className={cls.additionalWrapper}>
-                <div
-                    className={cls.divider1}
-                    style={{ height: divide1H ? `${divide1H}px` : '100%' }}
-                />
-                <div
-                    className={cls.divider2}
-                    style={{ height: divide2H ? `${divide2H}px` : '100%' }}
-                />
-                <div
-                    className={cls.divider3}
-                    style={{ height: divide3H ? `${divide3H}px` : '100%' }}
-                />
-                <div
-                    className={cls.divider4}
-                    style={{ height: divide4H ? `${divide4H}px` : '100%' }}
-                />
-                <div
-                    className={cls.divider5}
-                    style={{ height: divide5H ? `${divide5H}px` : '100%' }}
-                />
+            <HStack
+                className={cls.additionalWrapper}
+                maxH
+            >
                 {children}
-            </div>
-        </HStack>
+            </HStack>
+        </ContentTag>
     );
 });

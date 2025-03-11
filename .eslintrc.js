@@ -61,6 +61,7 @@ module.exports = {
                     'border',
                     'accept',
                     'href',
+                    'ContentTag',
                 ],
             },
         ],
@@ -76,6 +77,7 @@ module.exports = {
         'azat-plugin/path-checker': 'error',
         'prefer-const': 'off',
         'jsx-a11y/media-has-caption': 'off',
+        'consistent-return': 'warn',
     },
     globals: {
         __IS_DEV__: true,
