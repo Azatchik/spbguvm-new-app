@@ -17,11 +17,13 @@ const opacityClasses: Record<TextOpacity, string> = {
 
 export enum TextTheme {
     BLUE = 'blue',
+    DARK = 'dark',
     BLUE_GREY = 'blue_grey',
     WHITE = 'white',
     BLACK = 'black',
     RED = 'red',
     GREY = 'grey',
+    GREY_DARK = 'grey_dark',
     GREY_LIGHT = 'grey_light',
     BLUE_LIGHT2 = 'blue_light2',
     BLUE_LIGHT = 'blue_light',
@@ -65,6 +67,7 @@ interface TextProps extends HTMLAttributes<HTMLDivElement>{
     opacity?: TextOpacity;
     width?: string;
     height?: string;
+    isInline?: boolean;
 }
 
 type TextTagType = 'h1' | 'h2' | 'h3' | 'h4' | 'p'
@@ -100,6 +103,7 @@ export const Text = memo((props: TextProps) => {
         opacity,
         width,
         height,
+        isInline,
         ...otherProps
     } = props;
 
@@ -117,6 +121,7 @@ export const Text = memo((props: TextProps) => {
     const style: CSSProperties = {
         width: width && `${width}px`,
         height: height && `${height}px`,
+        display: isInline ? 'inline' : undefined,
     };
 
     return (
