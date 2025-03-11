@@ -23,7 +23,6 @@ export const ContentWrapper = memo((props: ContentWrapperProps) => {
         children,
         ContentTag = 'div',
     } = props;
-    const { t } = useTranslation();
 
     return (
         <ContentTag

@@ -1,4 +1,4 @@
-import { classNames, Mods } from 'shared/lib/classNames/classNames';
+import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import {
     CSSProperties,
@@ -55,7 +55,6 @@ export const Flex = memo((props: FlexProps) => {
         wrap,
         ...otherProps
     } = props;
-    const { t } = useTranslation();
 
     const classes = [
         className,

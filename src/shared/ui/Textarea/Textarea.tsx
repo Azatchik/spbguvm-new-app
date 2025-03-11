@@ -30,7 +30,6 @@ export const Textarea = memo((props: TextareaProps) => {
         maxW = false,
         justify = 'start',
     } = props;
-    const { t } = useTranslation();
     const [rows, setRows] = useState(5);
 
     useEffect(() => {
