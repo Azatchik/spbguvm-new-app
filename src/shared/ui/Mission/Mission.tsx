@@ -100,6 +100,7 @@ export const Mission = memo((props: MissionProps) => {
                         <Button
                             theme={ButtonTheme.PRIMARY_DARK_OUTLINE}
                             arrowPosition={ArrowPosition.ARROW_RIGHT}
+                            width="165"
                         >
                             {t('О ректоре')}
                         </Button>
