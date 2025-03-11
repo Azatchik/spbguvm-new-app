@@ -53,12 +53,6 @@ export const Menu = memo((props: MenuProps) => {
     const { t } = useTranslation();
     const timerRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>;
 
-    useEffect(() => {
-        if (isOpen) {
-            setIsMounted(true);
-        }
-    }, [isOpen]);
-
     const closeHandler = useCallback(() => {
         if (onClose) {
             setIsClosing(true);
@@ -68,6 +62,12 @@ export const Menu = memo((props: MenuProps) => {
             }, ANIMATION_DELAY);
         }
     }, [onClose]);
+
+    useEffect(() => {
+        if (isOpen) {
+            setIsMounted(true);
+        }
+    }, [closeHandler, isOpen]);
 
     const onContentClick = (e: React.MouseEvent) => {
         e.stopPropagation();
@@ -102,11 +102,9 @@ export const Menu = memo((props: MenuProps) => {
                 <div className={classNames(cls.Menu, mods, [className])}>
                     <div
                         className={cls.overlay}
-                        onClick={closeHandler}
                     >
                         <div
                             className={cls.content}
-                            onClick={onContentClick}
                         />
                     </div>
                 </div>

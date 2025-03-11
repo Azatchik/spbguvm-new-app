@@ -28,6 +28,8 @@ interface HeaderNavigatorProps {
     theme: HeaderNavigatorTheme;
 }
 
+export const HEADER_NAVIGATOR_ID = 'HEADER_NAVIGATOR_ID';
+
 export const HeaderNavigator = memo((props: HeaderNavigatorProps) => {
     const { className, theme } = props;
     const { t } = useTranslation();
@@ -51,10 +53,12 @@ export const HeaderNavigator = memo((props: HeaderNavigatorProps) => {
             document.body.classList.add('menu-open-body');
             document.getElementById(CONTENT_WRAPPER_ID)?.classList.add('menu-open-content');
             document.getElementById(HEADER_ID)?.classList.add('menu-open-header');
+            document.getElementById(HEADER_NAVIGATOR_ID)?.classList.add('menu-open-header-navigator');
         } else {
             document.body.classList.remove('menu-open-body');
             document.getElementById(CONTENT_WRAPPER_ID)?.classList.remove('menu-open-content');
             document.getElementById(HEADER_ID)?.classList.remove('menu-open-header');
+            document.getElementById(HEADER_NAVIGATOR_ID)?.classList.remove('menu-open-header-navigator');
         }
     }, [currentMenu]);
 
@@ -96,9 +100,13 @@ export const HeaderNavigator = memo((props: HeaderNavigatorProps) => {
         <HStack
             className={classNames(cls.HeaderNavigator, {}, [className])}
             justify="center"
+            align="center"
             maxW
+            id={HEADER_NAVIGATOR_ID}
         >
-            <HStack gap="10">
+            <HStack
+                gap="10"
+            >
                 <Menu
                     isOpen={!!currentMenu}
                     data={currentMenu ? mapNavigatorMenus[currentMenu] : undefined}

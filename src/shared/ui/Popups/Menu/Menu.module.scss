@@ -1,6 +1,6 @@
 .Menu {
     position: fixed;
-    top: 162px;
+    top: 0;
     bottom: 0;
     right: 0;
     left: 0;
@@ -21,8 +21,9 @@
 .content {
     background: var(--white);
     position: absolute;
-    left: 0;
-    right: 0;
+    left: 50px;
+    right: 65px;
+    top: 162px;
     min-width: 1280px;
     height: 641px;
     border: 5px solid var(--blue);

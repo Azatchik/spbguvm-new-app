@@ -32,6 +32,10 @@ body {
     right: 65px;
 }
 
+.menu-open-header-navigator {
+    background: var(--white);
+}
+
 ::-webkit-scrollbar {
     width: 15px; /* Ширина скроллбара */
 }
