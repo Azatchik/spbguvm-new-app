@@ -24,7 +24,6 @@
     left: 50px;
     right: 65px;
     top: 162px;
-    min-width: 1280px;
     height: 641px;
     border: 5px solid var(--blue);
     border-top: 0;
@@ -51,6 +50,7 @@
     color: var(--blue);
     padding-top: 20px;
     width: 27%;
+    min-width: 420px;
 }
 
 .sectionsWrapper {
