@@ -66,14 +66,12 @@ export const Slider = memo((props: SliderProps) => {
                     Svg={currentSliderImage === 1 ? arrowLeftDisabledIcon : arrowLeftIcon}
                     isDisabled={currentSliderImage === 1}
                     theme={IconTheme.CLEAN}
-                    isBtn
                     onClick={onClickArrowLeft}
                 />
                 <Icon
                     Svg={currentSliderImage === 4 ? arrowRightDisabledIcon : arrowRightIcon}
                     isDisabled={currentSliderImage === 4}
                     theme={IconTheme.CLEAN}
-                    isBtn
                     onClick={onClickArrowRight}
                 />
             </HStack>

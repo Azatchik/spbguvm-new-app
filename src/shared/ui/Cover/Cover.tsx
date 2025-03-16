@@ -1,6 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { CSSProperties, ReactNode } from 'react';
-import { ContentWrapper } from '../ContentWrapper/ContentWrapper';
+import { ContentWrapperDesktop } from '../ContentWrapper/DesktopView/ContentWrapperDesktop';
 import { HStack } from '../Stack';
 import cls from './Cover.module.scss';
 import { Text, TextSize, TextTheme } from '../Text/Text';
@@ -32,7 +32,7 @@ export const Cover = (props: CoverProps) => {
             style={bgImage ? style : undefined}
             maxW
         >
-            <ContentWrapper>
+            <ContentWrapperDesktop>
                 <HStack
                     className={cls.coverWrapper}
                     align="end"
@@ -58,7 +58,7 @@ export const Cover = (props: CoverProps) => {
                         </Text>
                     </HStack>
                 </HStack>
-            </ContentWrapper>
+            </ContentWrapperDesktop>
         </HStack>
     );
 };

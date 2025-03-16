@@ -6,7 +6,7 @@ import {
 import { HStack } from 'shared/ui/Stack';
 import { Text, TextSize, TextTheme } from 'shared/ui/Text/Text';
 import { Menu } from 'shared/ui/Popups/Menu/Menu';
-import { CONTENT_WRAPPER_ID } from 'shared/ui/ContentWrapper/ContentWrapper';
+import { CONTENT_WRAPPER_ID } from 'shared/ui/ContentWrapper/DesktopView/ContentWrapperDesktop';
 import { HEADER_ID } from '../HeaderDesktop/HeaderDesktop';
 import { getForStudentsMenu } from '../../../model/selectors/headerNavigatorMenus/getForStudentsMenu';
 import { getUniversityMenu } from '../../../model/selectors/headerNavigatorMenus/getUniversityMenu';

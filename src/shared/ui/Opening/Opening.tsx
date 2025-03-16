@@ -7,7 +7,7 @@ import { Image, ImageFrames } from 'shared/ui/Image/Image';
 import openingLeftImg from 'shared/assets/images/opening-left.png';
 import openingMiddleImg from 'shared/assets/images/opening-middle.png';
 import openingMainImg from 'shared/assets/images/opening-main.png';
-import { ContentWrapper } from 'shared/ui/ContentWrapper/ContentWrapper';
+import { ContentWrapperDesktop } from 'shared/ui/ContentWrapper/DesktopView/ContentWrapperDesktop';
 import cls from './Opening.module.scss';
 
 interface OpeningProps {
@@ -19,7 +19,7 @@ export const Opening = memo((props: OpeningProps) => {
     const { t } = useTranslation('mainPage');
 
     return (
-        <ContentWrapper
+        <ContentWrapperDesktop
             className={classNames(cls.Opening, {}, [className])}
             ContentTag="section"
         >
@@ -81,6 +81,6 @@ export const Opening = memo((props: OpeningProps) => {
                     frames={ImageFrames.ARROW}
                 />
             </HStack>
-        </ContentWrapper>
+        </ContentWrapperDesktop>
     );
 });

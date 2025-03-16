@@ -4,7 +4,7 @@ import { memo } from 'react';
 import { HStack, VStack } from 'shared/ui/Stack';
 import { Text, TextSize, TextTheme } from 'shared/ui/Text/Text';
 import { ArrowPosition, Button, ButtonTheme } from 'shared/ui/Button/Button';
-import { ContentWrapper } from 'shared/ui/ContentWrapper/ContentWrapper';
+import { ContentWrapperDesktop } from 'shared/ui/ContentWrapper/DesktopView/ContentWrapperDesktop';
 import { Slider } from 'shared/ui/Slideshow/Slider/Slider';
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 import cls from './AboutUniversity.module.scss';
@@ -18,7 +18,7 @@ export const AboutUniversity = memo((props: AboutUniversityProps) => {
     const { t } = useTranslation('mainPage');
 
     return (
-        <ContentWrapper className={classNames(cls.AboutUniversity, {}, [className])}>
+        <ContentWrapperDesktop className={classNames(cls.AboutUniversity, {}, [className])}>
             <VStack
                 gap="50"
                 maxW
@@ -97,6 +97,6 @@ export const AboutUniversity = memo((props: AboutUniversityProps) => {
                     </HStack>
                 </HStack>
             </VStack>
-        </ContentWrapper>
+        </ContentWrapperDesktop>
     );
 });

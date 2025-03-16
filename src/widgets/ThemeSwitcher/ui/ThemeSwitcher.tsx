@@ -50,6 +50,7 @@ export const ThemeSwitcher = memo(({ className, theme }: ThemeSwitcherProps) => 
                     : eyeDarkHoveredIcon}
                 theme={IconTheme.CLEAN}
                 className={cls.icon}
+                isDisabled={false}
                 {...bindIsHoverTooltip}
             />
         </div>

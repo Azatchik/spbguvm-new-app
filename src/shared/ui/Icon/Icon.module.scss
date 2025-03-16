@@ -3,23 +3,29 @@
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.isBtn {
     cursor: pointer;
+    &:hover {
+        .hoveredSvg {
+            opacity: 1;
+        }
+        .svg {
+            opacity: 0;
+        }
+    }
 }
 
-.isDisabled {
-    pointer-events: none;
+.svg {
+    transition: all 0.3s ease-out;
 }
 
 .hoveredSvg {
     position: absolute;
     opacity: 0;
     transition: all 0.3s ease-out;
-    &:hover {
-        opacity: 1;
-    }
+}
+
+.isDisabled {
+    pointer-events: none;
 }
 
 .menu_arrow {

@@ -1,33 +1,32 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { useTranslation } from 'react-i18next';
-import { memo, ReactNode } from 'react';
+import { HTMLAttributes, memo, ReactNode } from 'react';
 import { HStack } from 'shared/ui/Stack';
-import cls from './ContentWrapper.module.scss';
+import cls from './ContentWrapperSmallScreen.module.scss';
 
 export type ContentTagList =
     'section'
     | 'footer'
-    | 'article';
+    | 'article'
+    | 'header';
 
-interface ContentWrapperProps {
+interface ContentWrapperSmallScreenProps extends HTMLAttributes<HTMLDivElement>{
     className?: string;
     children: ReactNode;
     ContentTag?: ContentTagList;
 }
 
-export const CONTENT_WRAPPER_ID = 'CONTENT_WRAPPER_ID';
-
-export const ContentWrapper = memo((props: ContentWrapperProps) => {
+export const ContentWrapperSmallScreen = memo((props: ContentWrapperSmallScreenProps) => {
     const {
         className,
         children,
         ContentTag = 'div',
+        ...otherProps
     } = props;
 
     return (
         <ContentTag
-            className={classNames(cls.ContentWrapper, {}, [className])}
-            id={CONTENT_WRAPPER_ID}
+            className={classNames(cls.ContentWrapperSmallScreen, {}, [className])}
+            {...otherProps}
         >
             <HStack
                 className={cls.additionalWrapper}

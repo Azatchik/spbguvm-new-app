@@ -61,6 +61,7 @@ export const LangSwitcher = memo(({ className, theme }: LangSwitcherProps) => {
                 theme={IconTheme.CLEAN}
                 onClick={onIconClick}
                 className={cls.icon}
+                isDisabled={false}
             />
             {isDropdownVisible && (
                 <Languages

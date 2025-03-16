@@ -1,7 +1,7 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
-import { ContentWrapper } from 'shared/ui/ContentWrapper/ContentWrapper';
+import { ContentWrapperDesktop } from 'shared/ui/ContentWrapper/DesktopView/ContentWrapperDesktop';
 import { HStack, VStack } from 'shared/ui/Stack';
 import { Text, TextSize, TextTheme } from 'shared/ui/Text/Text';
 import { Image } from 'shared/ui/Image/Image';
@@ -21,7 +21,7 @@ export const Mission = memo((props: MissionProps) => {
     const { t } = useTranslation('mainPage');
 
     return (
-        <ContentWrapper
+        <ContentWrapperDesktop
             className={classNames(cls.Mission, {}, [className])}
             ContentTag="section"
         >
@@ -107,6 +107,6 @@ export const Mission = memo((props: MissionProps) => {
                     </VStack>
                 </HStack>
             </HStack>
-        </ContentWrapper>
+        </ContentWrapperDesktop>
     );
 });
