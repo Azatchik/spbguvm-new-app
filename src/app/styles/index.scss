@@ -16,7 +16,21 @@ body {
 }
 
 .app {
+    position: relative;
+}
+
+.app_desktop {
     min-width: 1600px;
+    position: relative;
+}
+
+.app_small-screen {
+    min-width: 760px;
+    position: relative;
+}
+
+.app_mobile {
+    min-width: 320px;
     position: relative;
 }
 

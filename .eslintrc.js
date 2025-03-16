@@ -78,6 +78,7 @@ module.exports = {
         'prefer-const': 'off',
         'jsx-a11y/media-has-caption': 'off',
         'consistent-return': 'warn',
+        'react/jsx-no-useless-fragment': 'warn',
     },
     globals: {
         __IS_DEV__: true,

@@ -1,1 +1,3 @@
-export { Footer } from './ui/Footer/Footer';
+export { FooterDesktop } from './ui/DesktopView/FooterDesktop/FooterDesktop';
+export { FooterMobile } from './ui/MobileView/FooterMobile/FooterMobile';
+export { FooterSmallScreen } from './ui/SmallScreenView/FooterSmallScreen/FooterSmallScreen';

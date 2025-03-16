@@ -1,6 +1,6 @@
 import { RouteProps } from 'react-router-dom';
 import { NotFoundPage } from 'pages/NotFoundPage';
-import { MainPage } from 'pages/MainPage';
+import { MainPageDesktop, MainPageMobile, MainPageSmallScreen } from 'pages/MainPage';
 
 export type AppRoutesProps = RouteProps & {
     authOnly?: boolean;
@@ -20,10 +20,44 @@ export const RoutePath: Record<AppRoutes, string> = {
     [AppRoutes.ADMIN]: '/admin',
 };
 
-export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
+export const routeConfigDesktop: Record<AppRoutes, AppRoutesProps> = {
     [AppRoutes.MAIN]: {
         path: RoutePath.main,
-        element: <MainPage />,
+        element: <MainPageDesktop />,
+    },
+    [AppRoutes.NOT_FOUND]: {
+        path: RoutePath.not_found,
+        element: <NotFoundPage />,
+    },
+    // Админам
+    [AppRoutes.ADMIN]: {
+        path: RoutePath.admin,
+        element: <NotFoundPage />,
+        authOnly: true,
+    },
+};
+
+export const routeConfigSmallScreen: Record<AppRoutes, AppRoutesProps> = {
+    [AppRoutes.MAIN]: {
+        path: RoutePath.main,
+        element: <MainPageSmallScreen />,
+    },
+    [AppRoutes.NOT_FOUND]: {
+        path: RoutePath.not_found,
+        element: <NotFoundPage />,
+    },
+    // Админам
+    [AppRoutes.ADMIN]: {
+        path: RoutePath.admin,
+        element: <NotFoundPage />,
+        authOnly: true,
+    },
+};
+
+export const routeConfigMobile: Record<AppRoutes, AppRoutesProps> = {
+    [AppRoutes.MAIN]: {
+        path: RoutePath.main,
+        element: <MainPageMobile />,
     },
     [AppRoutes.NOT_FOUND]: {
         path: RoutePath.not_found,

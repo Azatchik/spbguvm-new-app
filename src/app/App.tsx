@@ -1,28 +1,55 @@
-import React, { Suspense, useEffect } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
+import React, { Suspense, useEffect, useState } from 'react';
 import { useTheme } from 'app/providers/ThemeProvider';
-import { AppRouter } from 'app/providers/router';
-import { Header, HeaderTheme } from 'widgets/Header';
-import { Footer } from 'widgets/Footer';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { Views } from 'app/types/views';
+import { AppDesktopViewAsync as AppDesktopView } from './AppDesktopView/AppDesktopView.async';
+import { AppSmallScreenViewAsync as AppSmallScreenView } from './AppSmallScreenView/AppSmallScreenView.async';
+import { AppMobileViewAsync as AppMobileView } from './AppMobileView/AppMobileView.async';
 
 function App() {
     const { theme } = useTheme();
     const dispatch = useAppDispatch();
+    const [view, setView] = useState<Views>();
+
+    useEffect(() => {
+        const initialWidth = window.innerWidth;
+
+        if (initialWidth >= 1615) {
+            setView(Views.DESKTOP);
+        } else if (initialWidth >= 775) {
+            setView(Views.SMALL_SCREEN);
+        } else {
+            setView(Views.MOBILE);
+        }
+    }, []);
 
     useEffect(() => {
         document.body.className = theme;
     }, [theme]);
 
-    return (
-        <div className={classNames('app', {}, [])}>
+    if (view === Views.DESKTOP) {
+        return (
             <Suspense fallback="">
-                <Header headerTheme={HeaderTheme.DARK} />
-                <AppRouter />
-                <Footer />
+                <AppDesktopView />
             </Suspense>
-        </div>
-    );
+        );
+    }
+    if (view === Views.SMALL_SCREEN) {
+        return (
+            <Suspense fallback="">
+                <AppSmallScreenView />
+            </Suspense>
+        );
+    }
+    if (view === Views.MOBILE) {
+        return (
+            <Suspense fallback="">
+                <AppMobileView />
+            </Suspense>
+        );
+    }
+
+    return null;
 }
 
 export default App;
