@@ -22,7 +22,6 @@ module.exports = {
         '@typescript-eslint',
         'i18next',
         'react-hooks',
-        'azat-plugin',
     ],
     rules: {
         'react/jsx-indent': [2, 4],
