@@ -23,7 +23,7 @@
     position: absolute;
     left: 50px;
     right: 65px;
-    top: 162px;
+    top: 161px;
     height: 641px;
     min-width: 1485px;
     border: 5px solid var(--blue);
@@ -61,7 +61,7 @@
 .sectionMain {
     color: var(--black);
     font: var(--font-body-l-desktop);
-    box-shadow: -1px 0 1.6px -1px var(--blue-grey);
+    border-left: 1px solid var(--blue-grey-opacity2);
     padding: 20px 0 0 10px;
     width: 33.3%;
     height: 100%;

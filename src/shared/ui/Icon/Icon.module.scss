@@ -3,15 +3,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    cursor: pointer;
-    &:hover {
-        .hoveredSvg {
-            opacity: 1;
-        }
-        .svg {
-            opacity: 0;
-        }
-    }
 }
 
 .svg {
@@ -24,8 +15,20 @@
     transition: all 0.3s ease-out;
 }
 
-.isDisabled {
-    pointer-events: none;
+.isClickable {
+    cursor: pointer;
+}
+
+.isNotPassive {
+    cursor: pointer;
+    &:hover {
+        .hoveredSvg {
+            opacity: 1;
+        }
+        .svg {
+            opacity: 0;
+        }
+    }
 }
 
 .menu_arrow {

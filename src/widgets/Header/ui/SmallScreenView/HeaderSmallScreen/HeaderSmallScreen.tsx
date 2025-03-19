@@ -79,7 +79,6 @@ export const HeaderSmallScreen = memo((props: HeaderSmallScreenProps) => {
                             ? searchLightHoveredIcon
                             : searchDarkHoveredIcon}
                         theme={IconTheme.CLEAN}
-                        isDisabled={false}
                     />
                     <LangSwitcher theme={headerTheme === HeaderSmallScreenTheme.LIGHT
                         ? LangSwitcherTheme.LIGHT
@@ -93,7 +92,6 @@ export const HeaderSmallScreen = memo((props: HeaderSmallScreenProps) => {
                             ? burgerMenuLightActiveIcon
                             : burgerMenuDarkActiveIcon}
                         theme={IconTheme.CLEAN}
-                        isDisabled={false}
                     />
                 </HStack>
             </HStack>
