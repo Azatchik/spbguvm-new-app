@@ -26,8 +26,8 @@ interface Section {
 interface MenuData {
     title: string;
     section1: Section;
-    section2: Section;
-    section3: Section;
+    section2?: Section;
+    section3?: Section;
 }
 
 interface MenuProps {
@@ -143,7 +143,7 @@ export const Menu = memo((props: MenuProps) => {
                                                     <VStack align="start" maxW className={cls.subsections} gap="16">
                                                         {section.subsections.map((subsection) => (
                                                             <AppLink
-                                                                theme={AppLinkTheme.MENU_GREY}
+                                                                theme={AppLinkTheme.MENU_SUBSECTION}
                                                                 to={subsection.link}
                                                                 className={cls.subsection}
                                                             >
@@ -174,7 +174,7 @@ export const Menu = memo((props: MenuProps) => {
                                                     <VStack align="start" maxW className={cls.subsections} gap="16">
                                                         {section.subsections.map((subsection) => (
                                                             <AppLink
-                                                                theme={AppLinkTheme.MENU_GREY}
+                                                                theme={AppLinkTheme.MENU_SUBSECTION}
                                                                 to={subsection.link}
                                                                 className={cls.subsection}
                                                             >
@@ -205,7 +205,7 @@ export const Menu = memo((props: MenuProps) => {
                                                     <VStack align="start" maxW className={cls.subsections} gap="16">
                                                         {section.subsections.map((subsection) => (
                                                             <AppLink
-                                                                theme={AppLinkTheme.MENU_GREY}
+                                                                theme={AppLinkTheme.MENU_SUBSECTION}
                                                                 to={subsection.link}
                                                                 className={cls.subsection}
                                                             >

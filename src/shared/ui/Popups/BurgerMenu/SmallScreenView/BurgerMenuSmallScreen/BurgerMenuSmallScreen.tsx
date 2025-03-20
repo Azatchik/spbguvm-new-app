@@ -6,6 +6,9 @@ import { HStack, VStack } from 'shared/ui/Stack';
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 import { useTranslation } from 'react-i18next';
 import { Portal } from 'shared/ui/Portal/Portal';
+import {
+    BurgerMenuSpoilerSmallScreen,
+} from 'shared/ui/Popups/BurgerMenu/SmallScreenView/BurgerMenuSpoilerSmallScreen/BurgerMenuSpoilerSmallScreen';
 import cls from './BurgerMenuSmallScreen.module.scss';
 
 interface Subsection {
@@ -26,8 +29,8 @@ interface Section {
 interface MenuData {
     title: string;
     section1: Section;
-    section2: Section;
-    section3: Section;
+    section2?: Section;
+    section3?: Section;
 }
 
 interface BurgerMenuSmallScreenProps {
@@ -122,7 +125,17 @@ export const BurgerMenuSmallScreen = memo((props: BurgerMenuSmallScreenProps) =>
                     <div
                         className={cls.content}
                         onClick={onContentClick}
-                    />
+                    >
+                        <VStack
+                            className={cls.spoilersWrapper}
+                        >
+                            {data.map((menu) => (
+                                <BurgerMenuSpoilerSmallScreen
+                                    data={menu}
+                                />
+                            ))}
+                        </VStack>
+                    </div>
                 </div>
             </div>
         </Portal>

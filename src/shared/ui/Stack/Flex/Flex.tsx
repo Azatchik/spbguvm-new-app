@@ -37,6 +37,7 @@ export interface FlexProps extends DivProps {
     align?: FlexAlign;
     direction?: FlexDirection;
     gap?: string;
+    grow?: boolean;
     maxW?: boolean;
     maxH?: boolean;
     wrap?: boolean;
@@ -50,6 +51,7 @@ export const Flex = memo((props: FlexProps) => {
         direction = 'row',
         align = 'start',
         gap,
+        grow,
         maxW,
         maxH,
         wrap,
@@ -66,6 +68,7 @@ export const Flex = memo((props: FlexProps) => {
     const style: CSSProperties = {
         gap: gap ? `${gap}px` : undefined,
         flexWrap: wrap ? 'wrap' : undefined,
+        flexGrow: grow ? '1' : undefined,
         width: maxW ? '100%' : undefined,
         height: maxH ? '100%' : undefined,
     };

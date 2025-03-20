@@ -11,7 +11,9 @@ export enum AppLinkTheme {
     HEADER_LIGHT = 'header_light',
     HEADER_DARK = 'header_dark',
     MENU_ARROW = 'menu_arrow',
-    MENU_GREY = 'menu_grey',
+    BURGER_MENU_ARROW = 'burger_menu_arrow',
+    BURGER_MENU_SUBSECTION = 'burger_menu_subsection',
+    MENU_SUBSECTION = 'menu_subsection',
     CLEAN = 'clean',
 }
 
