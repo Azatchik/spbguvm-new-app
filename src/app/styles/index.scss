@@ -50,16 +50,5 @@ body {
     background: var(--white);
 }
 
-::-webkit-scrollbar {
-    width: 15px; /* Ширина скроллбара */
-}
 
-::-webkit-scrollbar-track {
-    background: white; /* Цвет дорожки скроллбара */
-}
-
-::-webkit-scrollbar-thumb {
-    background: #888; /* Цвет ползунка скроллбара */
-    border-radius: 10px; /* Радиус скругления ползунка */
-}
 

@@ -1,4 +1,17 @@
 .HeaderMobile {
-
+    position: absolute;
+    right: 0;
+    left: 0;
+    top: 0;
+    z-index: var(--header-mobile-z-index);
+    height: var(--header-mobile-height);
+    padding-inline: 10px;
 }
 
+.light {
+    background-color: var(--grey-light-opacity);
+}
+
+.dark {
+    background: var(--grey-light);
+}

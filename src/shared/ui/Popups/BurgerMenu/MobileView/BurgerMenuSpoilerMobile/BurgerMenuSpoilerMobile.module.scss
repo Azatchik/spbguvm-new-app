@@ -1,0 +1,38 @@
+.BurgerMenuSpoilerMobile {
+    padding-block: 15px;
+    border-bottom: 1px solid var(--blue-grey-opacity2);
+}
+
+.spoilerSummary {
+    cursor: pointer;
+}
+
+.arrowDownIcon {
+    transition: all 0.3s ease-out;
+}
+
+.arrowUp {
+    transform: rotateX(-180deg);
+}
+
+.spoilerContent {
+    transition: all 0.3s ease-out;
+    padding-left: 40px;
+}
+
+.spoilerContentEntering {
+    opacity: 1;
+}
+
+.spoilerContentEntered {
+    opacity: 1;
+}
+
+.spoilerContentExiting {
+    opacity: 0;
+}
+
+.spoilerContentExited {
+    opacity: 0;
+}
+

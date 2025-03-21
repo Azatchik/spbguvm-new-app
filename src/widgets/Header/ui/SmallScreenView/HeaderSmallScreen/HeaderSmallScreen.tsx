@@ -84,7 +84,6 @@ export const HeaderSmallScreen = memo((props: HeaderSmallScreenProps) => {
             id={HEADER_SMALL_SCREEN_ID}
         >
             <HStack
-                className={cls.headerWrapper}
                 maxW
                 maxH
                 justify="between"

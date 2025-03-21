@@ -3,17 +3,17 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
-import { HeaderNavigatorMobile } from './HeaderNavigatorMobile';
+import { BurgerMenuMobile } from './BurgerMenuMobile';
 
 export default {
-    title: 'shared/HeaderNavigator',
-    component: HeaderNavigatorMobile,
+    title: 'shared/BurgerMenuSmallScreen',
+    component: BurgerMenuMobile,
     argTypes: {
         backgroundColor: { control: 'color' },
     },
-} as ComponentMeta<typeof HeaderNavigatorMobile>;
+} as ComponentMeta<typeof BurgerMenuMobile>;
 
-const Template: ComponentStory<typeof HeaderNavigatorMobile> = (args) => <HeaderNavigatorMobile {...args} />;
+const Template: ComponentStory<typeof BurgerMenuMobile> = (args) => <BurgerMenuMobile {...args} />;
 
 export const Normal = Template.bind({});
 Normal.args = {};

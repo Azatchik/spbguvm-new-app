@@ -57,7 +57,11 @@ export const LanguagesDropdown = memo((props: LanguagesDropdownProps) => {
                         theme={IconTheme.CLEAN}
                         className={cls.radioIcon}
                     />
-                    <HStack className={cls.langWrapper} justify="between">
+                    <HStack
+                        className={cls.langWrapper}
+                        justify="between"
+                        align="center"
+                    >
                         <Text
                             theme={TextTheme.BLACK}
                             size={TextSize.BODY_S_DESKTOP}

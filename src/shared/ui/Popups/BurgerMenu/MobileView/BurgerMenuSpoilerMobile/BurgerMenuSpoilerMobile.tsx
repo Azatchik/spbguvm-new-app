@@ -9,7 +9,7 @@ import React, {
     memo, useCallback, useState,
 } from 'react';
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
-import cls from './BurgerMenuSpoilerSmallScreen.module.scss';
+import cls from './BurgerMenuSpoilerMobile.module.scss';
 
 interface Subsection {
     name: string;
@@ -33,12 +33,12 @@ interface MenuData {
     section3?: Section;
 }
 
-interface BurgerMenuSpoilerSmallScreenProps {
+interface BurgerMenuSpoilerMobileProps {
     className?: string;
     data?: MenuData;
 }
 
-export const BurgerMenuSpoilerSmallScreen = memo((props: BurgerMenuSpoilerSmallScreenProps) => {
+export const BurgerMenuSpoilerMobile = memo((props: BurgerMenuSpoilerMobileProps) => {
     const {
         className,
         data,
@@ -54,7 +54,7 @@ export const BurgerMenuSpoilerSmallScreen = memo((props: BurgerMenuSpoilerSmallS
 
     return (
         <VStack
-            className={classNames(cls.BurgerMenuSpoilerSmallScreen, {}, [className])}
+            className={classNames(cls.BurgerMenuSpoilerMobile, {}, [className])}
             maxW
         >
             <HStack
@@ -119,7 +119,6 @@ export const BurgerMenuSpoilerSmallScreen = memo((props: BurgerMenuSpoilerSmallS
                                             {!!section.subsections.length && (
                                                 <VStack
                                                     maxW
-                                                    className={cls.subsections}
                                                     gap="12"
                                                 >
                                                     {section.subsections.map((subsection) => (
@@ -157,7 +156,6 @@ export const BurgerMenuSpoilerSmallScreen = memo((props: BurgerMenuSpoilerSmallS
                                             {!!section.subsections.length && (
                                                 <VStack
                                                     maxW
-                                                    className={cls.subsections}
                                                     gap="12"
                                                 >
                                                     {section.subsections.map((subsection) => (
@@ -195,7 +193,6 @@ export const BurgerMenuSpoilerSmallScreen = memo((props: BurgerMenuSpoilerSmallS
                                             {!!section.subsections.length && (
                                                 <VStack
                                                     maxW
-                                                    className={cls.subsections}
                                                     gap="12"
                                                 >
                                                     {section.subsections.map((subsection) => (

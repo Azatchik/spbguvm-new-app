@@ -14,8 +14,8 @@ import rutubeIconWhiteHovered from 'shared/assets/icons/rutube-icon-white-hovere
 import { Link, LinkTheme } from 'shared/ui/Link/Link';
 import { Icon, IconTheme } from 'shared/ui/Icon/Icon';
 import { Transition } from 'react-transition-group';
-import cls from './BurgerMenuSmallScreen.module.scss';
-import { BurgerMenuSpoilerSmallScreen } from '../BurgerMenuSpoilerSmallScreen/BurgerMenuSpoilerSmallScreen';
+import cls from './BurgerMenuMobile.module.scss';
+import { BurgerMenuSpoilerMobile } from '../BurgerMenuSpoilerMobile/BurgerMenuSpoilerMobile';
 
 interface Subsection {
     name: string;
@@ -39,7 +39,7 @@ interface MenuData {
     section3?: Section;
 }
 
-interface BurgerMenuSmallScreenProps {
+interface BurgerMenuMobileProps {
     className?: string;
     isOpen?: boolean;
     onClose?: () => void;
@@ -47,7 +47,7 @@ interface BurgerMenuSmallScreenProps {
     data?: MenuData[];
 }
 
-export const BurgerMenuSmallScreen = memo((props: BurgerMenuSmallScreenProps) => {
+export const BurgerMenuMobile = memo((props: BurgerMenuMobileProps) => {
     const {
         className,
         data,
@@ -92,16 +92,16 @@ export const BurgerMenuSmallScreen = memo((props: BurgerMenuSmallScreenProps) =>
         >
             {(state) => {
                 const transitionStates = {
-                    entering: cls.burgerMenuSmallScreenEntering,
-                    entered: cls.burgerMenuSmallScreenEntered,
-                    exiting: cls.burgerMenuSmallScreenExiting,
-                    exited: cls.burgerMenuSmallScreenExited,
-                    unmounted: cls.burgerMenuSmallScreenUnmounted,
+                    entering: cls.burgerMenuMobileEntering,
+                    entered: cls.burgerMenuMobileEntered,
+                    exiting: cls.burgerMenuMobileExiting,
+                    exited: cls.burgerMenuMobileExited,
+                    unmounted: cls.burgerMenuMobileUnmounted,
                 };
 
                 return (
                     <Portal>
-                        <div className={classNames(cls.BurgerMenuSmallScreen, {}, [className, transitionStates[state]])}>
+                        <div className={classNames(cls.BurgerMenuMobile, {}, [className, transitionStates[state]])}>
                             <div
                                 className={cls.overlay}
                                 onClick={closeHandler}
@@ -122,7 +122,7 @@ export const BurgerMenuSmallScreen = memo((props: BurgerMenuSmallScreenProps) =>
                                             maxW
                                         >
                                             {data.map((menu) => (
-                                                <BurgerMenuSpoilerSmallScreen
+                                                <BurgerMenuSpoilerMobile
                                                     data={menu}
                                                 />
                                             ))}

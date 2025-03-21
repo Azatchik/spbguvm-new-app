@@ -1,4 +1,4 @@
-.BurgerMenuSmallScreen {
+.BurgerMenuMobile {
     position: fixed;
     top: 0;
     bottom: 0;
@@ -6,23 +6,24 @@
     left: 0;
     opacity: 0;
     transition: opacity 0.3s ease-out;
+    user-select: none;
 }
 
-.burgerMenuSmallScreenEntering {
+.burgerMenuMobileEntering {
     opacity: 1;
     z-index: var(--burger-menu-z-index);
 }
 
-.burgerMenuSmallScreenEntered {
+.burgerMenuMobileEntered {
     opacity: 1;
     z-index: var(--burger-menu-z-index);
 }
 
-.burgerMenuSmallScreenExiting {
+.burgerMenuMobileExiting {
     opacity: 0;
 }
 
-.burgerMenuSmallScreenExited {
+.burgerMenuMobileExited {
     opacity: 0;
 }
 
@@ -39,15 +40,14 @@
     position: absolute;
     left: 0;
     right: 0;
-    top: var(--header-smallscreen-height);
+    top: var(--header-mobile-height);
     bottom: 0;
-    min-width: 656px;
     cursor: auto;
 }
 
 .contentWrapper {
-    padding-inline: 30px;
-    padding-block: 40px;
+    padding-inline: 10px;
+    padding-block: 20px;
     overflow-y: auto;
 }
 
