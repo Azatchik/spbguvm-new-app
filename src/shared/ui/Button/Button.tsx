@@ -46,7 +46,7 @@ export const Button = memo((props: ButtonProps) => {
     } = props;
 
     const styles: CSSProperties = {
-        width: `${width}px`,
+        minWidth: `${width}px`,
     };
 
     return (

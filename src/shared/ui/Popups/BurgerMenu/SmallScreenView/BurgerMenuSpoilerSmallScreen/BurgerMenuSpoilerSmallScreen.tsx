@@ -53,16 +53,15 @@ export const BurgerMenuSpoilerSmallScreen = memo((props: BurgerMenuSpoilerSmallS
     if (!data) return null;
 
     return (
-        <HStack
+        <VStack
             className={classNames(cls.BurgerMenuSpoilerSmallScreen, {}, [className])}
             maxW
-            justify="between"
         >
-            <VStack
-                grow
+            <HStack
+                maxW
+                justify="between"
                 onClick={onToggleSpoiler}
                 className={cls.spoilerSummary}
-                gap="15"
             >
                 <Text
                     theme={TextTheme.HEADER_LIGHT}
@@ -70,152 +69,153 @@ export const BurgerMenuSpoilerSmallScreen = memo((props: BurgerMenuSpoilerSmallS
                 >
                     {t(data.title.toUpperCase())}
                 </Text>
-                <Transition
-                    in={spoilerIsOpen}
-                    timeout={300}
-                    unmountOnExit
-                    mountOnEnter
-                >
-                    {(state) => {
-                        const transitionStates = {
-                            entered: cls.spoilerContentEntered,
-                            entering: cls.spoilerContentEntering,
-                            exiting: cls.spoilerContentExiting,
-                            exited: cls.spoilerContentExited,
-                            unmounted: cls.spoilerContentUnmounted,
-                        };
+                <Icon
+                    Svg={arrowSpoilerDownIcon}
+                    theme={IconTheme.CLEAN}
+                    isClickable
+                    className={classNames(cls.arrowDownIcon, { [cls.arrowUp]: spoilerIsOpen }, [])}
+                />
+            </HStack>
 
-                        return (
-                            <VStack
-                                className={`${cls.spoilerContent} ${transitionStates[state]}`}
-                                gap="15"
-                            >
-                                {data.section1 && (
-                                    <VStack
-                                        className={cls.sectionMain}
-                                        maxH
-                                        gap="8"
-                                    >
-                                        {Object.values(data.section1).map((section) => (
-                                            <VStack
-                                                gap={section.subsections.length > 0 ? '6' : undefined}
-                                                maxW
+            <Transition
+                in={spoilerIsOpen}
+                timeout={300}
+                unmountOnExit
+                mountOnEnter
+            >
+                {(state) => {
+                    const transitionStates = {
+                        entered: cls.spoilerContentEntered,
+                        entering: cls.spoilerContentEntering,
+                        exiting: cls.spoilerContentExiting,
+                        exited: cls.spoilerContentExited,
+                        unmounted: cls.spoilerContentUnmounted,
+                    };
+
+                    return (
+                        <VStack
+                            className={`${cls.spoilerContent} ${transitionStates[state]}`}
+                            gap="15"
+                            maxW
+                        >
+                            {data.section1 && (
+                                <VStack
+                                    className={cls.sectionMain}
+                                    maxH
+                                    gap="8"
+                                >
+                                    {Object.values(data.section1).map((section) => (
+                                        <VStack
+                                            gap={section.subsections.length > 0 ? '6' : undefined}
+                                            maxW
+                                        >
+                                            <AppLink
+                                                theme={AppLinkTheme.BURGER_MENU_ARROW}
+                                                to={section.link}
                                             >
-                                                <AppLink
-                                                    theme={AppLinkTheme.BURGER_MENU_ARROW}
-                                                    to={section.link}
+                                                {t(section.name)}
+                                            </AppLink>
+                                            {!!section.subsections.length && (
+                                                <VStack
+                                                    maxW
+                                                    className={cls.subsections}
+                                                    gap="12"
                                                 >
-                                                    {t(section.name)}
-                                                </AppLink>
-                                                {!!section.subsections.length && (
-                                                    <VStack
-                                                        maxW
-                                                        className={cls.subsections}
-                                                        gap="12"
-                                                    >
-                                                        {section.subsections.map((subsection) => (
-                                                            <AppLink
-                                                                theme={AppLinkTheme.BURGER_MENU_SUBSECTION}
-                                                                to={subsection.link}
-                                                                className={cls.subsection}
-                                                            >
-                                                                {t(subsection.name)}
-                                                            </AppLink>
-                                                        ))}
-                                                    </VStack>
-                                                )}
-                                            </VStack>
-                                        ))}
-                                    </VStack>
-                                )}
-                                {data.section2 && (
-                                    <VStack
-                                        className={cls.sectionMain}
-                                        maxH
-                                        gap="8"
-                                    >
-                                        {Object.values(data.section2).map((section) => (
-                                            <VStack
-                                                gap={section.subsections.length > 0 ? '6' : undefined}
-                                                maxW
+                                                    {section.subsections.map((subsection) => (
+                                                        <AppLink
+                                                            theme={AppLinkTheme.BURGER_MENU_SUBSECTION}
+                                                            to={subsection.link}
+                                                            className={cls.subsection}
+                                                        >
+                                                            {t(subsection.name)}
+                                                        </AppLink>
+                                                    ))}
+                                                </VStack>
+                                            )}
+                                        </VStack>
+                                    ))}
+                                </VStack>
+                            )}
+                            {data.section2 && (
+                                <VStack
+                                    className={cls.sectionMain}
+                                    maxH
+                                    gap="8"
+                                >
+                                    {Object.values(data.section2).map((section) => (
+                                        <VStack
+                                            gap={section.subsections.length > 0 ? '6' : undefined}
+                                            maxW
+                                        >
+                                            <AppLink
+                                                theme={AppLinkTheme.BURGER_MENU_ARROW}
+                                                to={section.link}
                                             >
-                                                <AppLink
-                                                    theme={AppLinkTheme.BURGER_MENU_ARROW}
-                                                    to={section.link}
+                                                {t(section.name)}
+                                            </AppLink>
+                                            {!!section.subsections.length && (
+                                                <VStack
+                                                    maxW
+                                                    className={cls.subsections}
+                                                    gap="12"
                                                 >
-                                                    {t(section.name)}
-                                                </AppLink>
-                                                {!!section.subsections.length && (
-                                                    <VStack
-                                                        maxW
-                                                        className={cls.subsections}
-                                                        gap="12"
-                                                    >
-                                                        {section.subsections.map((subsection) => (
-                                                            <AppLink
-                                                                theme={AppLinkTheme.BURGER_MENU_SUBSECTION}
-                                                                to={subsection.link}
-                                                                className={cls.subsection}
-                                                            >
-                                                                {t(subsection.name)}
-                                                            </AppLink>
-                                                        ))}
-                                                    </VStack>
-                                                )}
-                                            </VStack>
-                                        ))}
-                                    </VStack>
-                                )}
-                                {data.section3 && (
-                                    <VStack
-                                        className={cls.sectionMain}
-                                        maxH
-                                        gap="8"
-                                    >
-                                        {Object.values(data.section3).map((section) => (
-                                            <VStack
-                                                gap={section.subsections.length > 0 ? '6' : undefined}
-                                                maxW
+                                                    {section.subsections.map((subsection) => (
+                                                        <AppLink
+                                                            theme={AppLinkTheme.BURGER_MENU_SUBSECTION}
+                                                            to={subsection.link}
+                                                            className={cls.subsection}
+                                                        >
+                                                            {t(subsection.name)}
+                                                        </AppLink>
+                                                    ))}
+                                                </VStack>
+                                            )}
+                                        </VStack>
+                                    ))}
+                                </VStack>
+                            )}
+                            {data.section3 && (
+                                <VStack
+                                    className={cls.sectionMain}
+                                    maxH
+                                    gap="8"
+                                >
+                                    {Object.values(data.section3).map((section) => (
+                                        <VStack
+                                            gap={section.subsections.length > 0 ? '6' : undefined}
+                                            maxW
+                                        >
+                                            <AppLink
+                                                theme={AppLinkTheme.BURGER_MENU_ARROW}
+                                                to={section.link}
                                             >
-                                                <AppLink
-                                                    theme={AppLinkTheme.BURGER_MENU_ARROW}
-                                                    to={section.link}
+                                                {t(section.name)}
+                                            </AppLink>
+                                            {!!section.subsections.length && (
+                                                <VStack
+                                                    maxW
+                                                    className={cls.subsections}
+                                                    gap="12"
                                                 >
-                                                    {t(section.name)}
-                                                </AppLink>
-                                                {!!section.subsections.length && (
-                                                    <VStack
-                                                        maxW
-                                                        className={cls.subsections}
-                                                        gap="12"
-                                                    >
-                                                        {section.subsections.map((subsection) => (
-                                                            <AppLink
-                                                                theme={AppLinkTheme.BURGER_MENU_SUBSECTION}
-                                                                to={subsection.link}
-                                                                className={cls.subsection}
-                                                            >
-                                                                {t(subsection.name)}
-                                                            </AppLink>
-                                                        ))}
-                                                    </VStack>
-                                                )}
-                                            </VStack>
-                                        ))}
-                                    </VStack>
-                                )}
-                            </VStack>
-                        );
-                    }}
-                </Transition>
-            </VStack>
-            <Icon
-                Svg={arrowSpoilerDownIcon}
-                onClick={onToggleSpoiler}
-                theme={IconTheme.CLEAN}
-                isClickable
-                className={classNames(cls.arrowDownIcon, { [cls.arrowUp]: spoilerIsOpen }, [])}
-            />
-        </HStack>
+                                                    {section.subsections.map((subsection) => (
+                                                        <AppLink
+                                                            theme={AppLinkTheme.BURGER_MENU_SUBSECTION}
+                                                            to={subsection.link}
+                                                            className={cls.subsection}
+                                                        >
+                                                            {t(subsection.name)}
+                                                        </AppLink>
+                                                    ))}
+                                                </VStack>
+                                            )}
+                                        </VStack>
+                                    ))}
+                                </VStack>
+                            )}
+                        </VStack>
+                    );
+                }}
+            </Transition>
+        </VStack>
     );
 });

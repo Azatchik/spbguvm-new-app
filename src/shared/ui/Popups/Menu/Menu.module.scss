@@ -16,6 +16,7 @@
     height: 100%;
     background: var(--blue-grey-opacity);
     position: relative;
+    cursor: pointer;
 }
 
 .content {
@@ -29,6 +30,7 @@
     border: 5px solid var(--blue);
     border-top: 0;
     padding-inline: 50px;
+    cursor: auto;
 }
 
 .opened {

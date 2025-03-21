@@ -16,6 +16,7 @@
     height: 100%;
     background: var(--blue-grey-opacity);
     position: relative;
+    cursor: pointer;
 }
 
 .content {
@@ -26,6 +27,10 @@
     top: var(--header-smallscreen-height);
     bottom: 0;
     min-width: 656px;
+    cursor: auto;
+}
+
+.contentWrapper {
     padding-inline: 30px;
     padding-block: 40px;
     overflow-y: auto;

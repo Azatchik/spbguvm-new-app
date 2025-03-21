@@ -6,10 +6,19 @@ import { HStack, VStack } from 'shared/ui/Stack';
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 import { useTranslation } from 'react-i18next';
 import { Portal } from 'shared/ui/Portal/Portal';
+import { ArrowPosition, Button, ButtonTheme } from 'shared/ui/Button/Button';
+import vkIconWhite from 'shared/assets/icons/vk-icon-white.svg';
+import vkIconWhiteHovered from 'shared/assets/icons/vk-icon-white-hovered.svg';
+import telegramIconWhite from 'shared/assets/icons/telegram-icon-white.svg';
+import telegramIconWhiteHovered from 'shared/assets/icons/telegram-icon-white-hovered.svg';
+import rutubeIconWhite from 'shared/assets/icons/rutube-icon-white.svg';
+import rutubeIconWhiteHovered from 'shared/assets/icons/rutube-icon-white-hovered.svg';
+import { Link, LinkTheme } from 'shared/ui/Link/Link';
+import { Icon, IconTheme } from 'shared/ui/Icon/Icon';
+import cls from './BurgerMenuSmallScreen.module.scss';
 import {
     BurgerMenuSpoilerSmallScreen,
-} from 'shared/ui/Popups/BurgerMenu/SmallScreenView/BurgerMenuSpoilerSmallScreen/BurgerMenuSpoilerSmallScreen';
-import cls from './BurgerMenuSmallScreen.module.scss';
+} from '../BurgerMenuSpoilerSmallScreen/BurgerMenuSpoilerSmallScreen';
 
 interface Subsection {
     name: string;
@@ -127,13 +136,96 @@ export const BurgerMenuSmallScreen = memo((props: BurgerMenuSmallScreenProps) =>
                         onClick={onContentClick}
                     >
                         <VStack
-                            className={cls.spoilersWrapper}
+                            className={cls.contentWrapper}
+                            maxW
+                            maxH
+                            justify="between"
+                            gap="50"
                         >
-                            {data.map((menu) => (
-                                <BurgerMenuSpoilerSmallScreen
-                                    data={menu}
-                                />
-                            ))}
+                            <VStack
+                                className={cls.spoilersWrapper}
+                                maxW
+                            >
+                                {data.map((menu) => (
+                                    <BurgerMenuSpoilerSmallScreen
+                                        data={menu}
+                                    />
+                                ))}
+                            </VStack>
+                            <VStack
+                                maxW
+                                gap="40"
+                            >
+                                <HStack
+                                    justify="between"
+                                    gap="50"
+                                    maxW
+                                >
+                                    <HStack
+                                        gap="25"
+                                    >
+                                        <AppLink
+                                            theme={AppLinkTheme.HEADER_LIGHT}
+                                            to="#"
+                                        >
+                                            {t('Контакты')}
+                                        </AppLink>
+                                        <AppLink
+                                            theme={AppLinkTheme.HEADER_LIGHT}
+                                            to="#"
+                                        >
+                                            {t('Медиа-центр')}
+                                        </AppLink>
+                                        <AppLink
+                                            theme={AppLinkTheme.HEADER_LIGHT}
+                                            to="#"
+                                        >
+                                            {t('Нормативные документы')}
+                                        </AppLink>
+                                    </HStack>
+                                    <Button
+                                        theme={ButtonTheme.PRIMARY_WHITE_FILL}
+                                        arrowPosition={ArrowPosition.ARROW_RIGHT}
+                                        width="200"
+                                    >
+                                        {t('Приемная кампания')}
+                                    </Button>
+                                </HStack>
+                                <HStack
+                                    gap="15"
+                                >
+                                    <Link
+                                        theme={LinkTheme.CLEAN}
+                                        href="https://vk.com/spbguvm"
+                                    >
+                                        <Icon
+                                            Svg={vkIconWhite}
+                                            HoveredSvg={vkIconWhiteHovered}
+                                            theme={IconTheme.CLEAN}
+                                        />
+                                    </Link>
+                                    <Link
+                                        theme={LinkTheme.CLEAN}
+                                        href="https://t.me/spbguvmofficial"
+                                    >
+                                        <Icon
+                                            Svg={telegramIconWhite}
+                                            HoveredSvg={telegramIconWhiteHovered}
+                                            theme={IconTheme.CLEAN}
+                                        />
+                                    </Link>
+                                    <Link
+                                        theme={LinkTheme.CLEAN}
+                                        href="https://rutube.ru/channel/23637865/"
+                                    >
+                                        <Icon
+                                            Svg={rutubeIconWhite}
+                                            HoveredSvg={rutubeIconWhiteHovered}
+                                            theme={IconTheme.CLEAN}
+                                        />
+                                    </Link>
+                                </HStack>
+                            </VStack>
                         </VStack>
                     </div>
                 </div>
