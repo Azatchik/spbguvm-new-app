@@ -37,8 +37,6 @@ interface HeaderSmallScreenProps {
     className?: string;
 }
 
-export const HEADER_SMALL_SCREEN_ID = 'HEADER_SMALL_SCREEN_ID';
-
 export const HeaderSmallScreen = memo((props: HeaderSmallScreenProps) => {
     const {
         className,
@@ -69,10 +67,6 @@ export const HeaderSmallScreen = memo((props: HeaderSmallScreenProps) => {
         [isOpenBurgerMenu],
     );
 
-    const mods: Mods = {
-        [cls.isOpenBurgerMenu]: isOpenBurgerMenu,
-    };
-
     const classes = [
         className,
         cls[headerTheme],
@@ -80,8 +74,7 @@ export const HeaderSmallScreen = memo((props: HeaderSmallScreenProps) => {
 
     return (
         <header
-            className={classNames(cls.HeaderSmallScreen, mods, classes)}
-            id={HEADER_SMALL_SCREEN_ID}
+            className={classNames(cls.HeaderSmallScreen, {}, classes)}
         >
             <HStack
                 maxW

@@ -6,17 +6,13 @@ import {
 import { HStack } from 'shared/ui/Stack';
 import { Text, TextSize, TextTheme } from 'shared/ui/Text/Text';
 import { Menu } from 'shared/ui/Popups/Menu/Menu';
-import { CONTENT_WRAPPER_ID } from 'shared/ui/ContentWrapper/DesktopView/ContentWrapperDesktop';
-import { HEADER_ID } from '../HeaderDesktop/HeaderDesktop';
 import { getForStudentsMenu } from '../../../model/selectors/headerNavigatorMenus/getForStudentsMenu';
 import { getUniversityMenu } from '../../../model/selectors/headerNavigatorMenus/getUniversityMenu';
 import cls from './HeaderNavigatorDesktop.module.scss';
 import { navigationMenuNames } from '../../../model/types/navigationMenuNames';
 import { getForApplicantsMenu } from '../../../model/selectors/headerNavigatorMenus/getForApplicantsMenu';
 import { getScienceMenu } from '../../../model/selectors/headerNavigatorMenus/getScienceMenu';
-import {
-    getCooperationMenu,
-} from '../../../model/selectors/headerNavigatorMenus/getCooperationMenu';
+import { getCooperationMenu } from '../../../model/selectors/headerNavigatorMenus/getCooperationMenu';
 
 export enum HeaderNavigatorDesktopTheme {
     LIGHT = 'light',
@@ -27,8 +23,6 @@ interface HeaderNavigatorDesktopProps {
     className?: string;
     theme: HeaderNavigatorDesktopTheme;
 }
-
-export const HEADER_NAVIGATOR_ID = 'HEADER_NAVIGATOR_ID';
 
 export const HeaderNavigatorDesktop = memo((props: HeaderNavigatorDesktopProps) => {
     const { className, theme } = props;
@@ -51,14 +45,8 @@ export const HeaderNavigatorDesktop = memo((props: HeaderNavigatorDesktopProps) 
     useEffect(() => {
         if (currentMenu) {
             document.body.classList.add('menu-open-body');
-            document.getElementById(CONTENT_WRAPPER_ID)?.classList.add('menu-open-content');
-            document.getElementById(HEADER_ID)?.classList.add('menu-open-header');
-            document.getElementById(HEADER_NAVIGATOR_ID)?.classList.add('menu-open-header-navigator');
         } else {
             document.body.classList.remove('menu-open-body');
-            document.getElementById(CONTENT_WRAPPER_ID)?.classList.remove('menu-open-content');
-            document.getElementById(HEADER_ID)?.classList.remove('menu-open-header');
-            document.getElementById(HEADER_NAVIGATOR_ID)?.classList.remove('menu-open-header-navigator');
         }
     }, [currentMenu]);
 
@@ -98,11 +86,10 @@ export const HeaderNavigatorDesktop = memo((props: HeaderNavigatorDesktopProps) 
 
     return (
         <HStack
-            className={classNames(cls.HeaderNavigatorDesktop, {}, [className])}
+            className={classNames(cls.HeaderNavigatorDesktop, { [cls.menuIsOpen]: !!currentMenu }, [className])}
             justify="center"
             align="center"
             maxW
-            id={HEADER_NAVIGATOR_ID}
         >
             <HStack
                 gap="10"

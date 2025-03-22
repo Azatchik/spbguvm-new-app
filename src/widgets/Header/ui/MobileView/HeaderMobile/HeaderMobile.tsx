@@ -31,8 +31,6 @@ interface HeaderMobileProps {
     className?: string;
 }
 
-export const HEADER_MOBILE_ID = 'HEADER_MOBILE_ID';
-
 export const HeaderMobile = memo((props: HeaderMobileProps) => {
     const {
         className,
@@ -71,7 +69,6 @@ export const HeaderMobile = memo((props: HeaderMobileProps) => {
     return (
         <header
             className={classNames(cls.HeaderMobile, {}, classes)}
-            id={HEADER_MOBILE_ID}
         >
             <HStack
                 maxW

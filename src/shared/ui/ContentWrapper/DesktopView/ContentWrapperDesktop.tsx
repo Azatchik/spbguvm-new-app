@@ -5,7 +5,6 @@ import cls from './ContentWrapperDesktop.module.scss';
 
 export type ContentTagList =
     'section'
-    | 'footer'
     | 'article';
 
 interface ContentWrapperDesktopProps {
@@ -13,8 +12,6 @@ interface ContentWrapperDesktopProps {
     children: ReactNode;
     ContentTag?: ContentTagList;
 }
-
-export const CONTENT_WRAPPER_ID = 'CONTENT_WRAPPER_ID';
 
 export const ContentWrapperDesktop = memo((props: ContentWrapperDesktopProps) => {
     const {
@@ -26,7 +23,6 @@ export const ContentWrapperDesktop = memo((props: ContentWrapperDesktopProps) =>
     return (
         <ContentTag
             className={classNames(cls.ContentWrapperDesktop, {}, [className])}
-            id={CONTENT_WRAPPER_ID}
         >
             <HStack
                 className={cls.additionalWrapper}

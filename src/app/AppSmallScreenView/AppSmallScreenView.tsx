@@ -8,17 +8,8 @@ const AppSmallScreenView = () => {
     useEffect(() => {
         const styleSheet = document.createElement('style');
         styleSheet.innerHTML = `
-        ::-webkit-scrollbar {
-            width: 15px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: white;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: #888;
-            border-radius: 10px;
+        * {
+            -webkit-tap-highlight-color: transparent;
         }
         `;
         document.head.appendChild(styleSheet);

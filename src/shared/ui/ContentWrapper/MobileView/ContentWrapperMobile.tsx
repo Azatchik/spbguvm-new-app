@@ -5,7 +5,6 @@ import cls from './ContentWrapperMobile.module.scss';
 
 export type ContentTagList =
     'section'
-    | 'footer'
     | 'article';
 
 interface ContentWrapperMobileProps {

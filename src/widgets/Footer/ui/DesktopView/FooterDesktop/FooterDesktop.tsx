@@ -1,7 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
-import { ContentWrapperDesktop } from 'shared/ui/ContentWrapper/DesktopView/ContentWrapperDesktop';
 import { HStack, VStack } from 'shared/ui/Stack';
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 import { Link, LinkTheme } from 'shared/ui/Link/Link';
@@ -20,9 +19,8 @@ export const FooterDesktop = memo((props: FooterDesktopProps) => {
     const { t } = useTranslation();
 
     return (
-        <ContentWrapperDesktop
+        <footer
             className={classNames(cls.FooterDesktop, {}, [className])}
-            ContentTag="footer"
         >
             <HStack
                 maxW
@@ -79,6 +77,6 @@ export const FooterDesktop = memo((props: FooterDesktopProps) => {
                     </HStack>
                 </VStack>
             </HStack>
-        </ContentWrapperDesktop>
+        </footer>
     );
 });

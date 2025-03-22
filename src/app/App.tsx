@@ -14,9 +14,9 @@ function App() {
     useEffect(() => {
         const initialWidth = window.innerWidth;
 
-        if (initialWidth >= 1615) {
+        if (initialWidth >= 1610) {
             setView(Views.DESKTOP);
-        } else if (initialWidth >= 775) {
+        } else if (initialWidth >= 770) {
             setView(Views.SMALL_SCREEN);
         } else {
             setView(Views.MOBILE);

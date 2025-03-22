@@ -45,7 +45,7 @@ export const FooterSmallScreen = memo((props: FooterSmallScreenProps) => {
                             <FooterMenuSmallScreen />
                         </HStack>
                         <HStack
-                            gap="20"
+                            gap="43"
                         >
                             <FooterContactsSmallScreen />
                             <FooterGovSmallScreen />

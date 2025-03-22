@@ -1,6 +1,10 @@
 .FooterDesktop {
     background: var(--blue-deep);
     height: 732px;
+    padding-inline: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .rightBlocks {

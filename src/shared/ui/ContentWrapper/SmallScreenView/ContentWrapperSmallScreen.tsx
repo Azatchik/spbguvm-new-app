@@ -5,9 +5,7 @@ import cls from './ContentWrapperSmallScreen.module.scss';
 
 export type ContentTagList =
     'section'
-    | 'footer'
-    | 'article'
-    | 'header';
+    | 'article';
 
 interface ContentWrapperSmallScreenProps extends HTMLAttributes<HTMLDivElement>{
     className?: string;

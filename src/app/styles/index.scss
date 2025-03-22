@@ -8,6 +8,7 @@ body {
     width: 100%;
     position: relative;
     overflow-x: hidden;
+    scrollbar-gutter: stable;
 }
 
 #root {
@@ -31,24 +32,13 @@ body {
 }
 
 .menu-open-body {
-    position: fixed;
+    overflow-y: hidden;
 }
 
 .burger-menu-open-body {
-    position: fixed;
+    overflow-y: hidden;
 }
 
-.menu-open-content {
-    padding-right: 65px !important;
-}
-
-.menu-open-header {
-    right: 65px !important;
-}
-
-.menu-open-header-navigator {
-    background: var(--white);
-}
 
 
 
