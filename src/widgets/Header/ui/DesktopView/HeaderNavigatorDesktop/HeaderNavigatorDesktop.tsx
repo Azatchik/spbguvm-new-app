@@ -114,7 +114,9 @@ export const HeaderNavigatorDesktop = memo((props: HeaderNavigatorDesktopProps) 
                     lazy
                 />
                 <Text
-                    theme={theme === HeaderNavigatorDesktopTheme.LIGHT ? TextTheme.HEADER_LIGHT : TextTheme.HEADER_DARK}
+                    theme={theme === HeaderNavigatorDesktopTheme.LIGHT
+                        ? TextTheme.NAVIGATOR_UNDERLINE_LIGHT
+                        : TextTheme.NAVIGATOR_UNDERLINE_DARK}
                     size={TextSize.MENU_CAPS_DESKTOP}
                     onClick={() => onClickNavigation(navigationMenuNames.UNIVERSITY)}
                     onMouseEnter={() => onMouseEnterNavigation(navigationMenuNames.UNIVERSITY)}
@@ -122,7 +124,9 @@ export const HeaderNavigatorDesktop = memo((props: HeaderNavigatorDesktopProps) 
                     {t('УНИВЕРСИТЕТ')}
                 </Text>
                 <Text
-                    theme={theme === HeaderNavigatorDesktopTheme.LIGHT ? TextTheme.HEADER_LIGHT : TextTheme.HEADER_DARK}
+                    theme={theme === HeaderNavigatorDesktopTheme.LIGHT
+                        ? TextTheme.NAVIGATOR_UNDERLINE_LIGHT
+                        : TextTheme.NAVIGATOR_UNDERLINE_DARK}
                     size={TextSize.MENU_CAPS_DESKTOP}
                     onClick={() => onClickNavigation(navigationMenuNames.FOR_APPLICANTS)}
                     onMouseEnter={() => onMouseEnterNavigation(navigationMenuNames.FOR_APPLICANTS)}
@@ -130,7 +134,9 @@ export const HeaderNavigatorDesktop = memo((props: HeaderNavigatorDesktopProps) 
                     {t('ПОСТУПАЮЩИМ')}
                 </Text>
                 <Text
-                    theme={theme === HeaderNavigatorDesktopTheme.LIGHT ? TextTheme.HEADER_LIGHT : TextTheme.HEADER_DARK}
+                    theme={theme === HeaderNavigatorDesktopTheme.LIGHT
+                        ? TextTheme.NAVIGATOR_UNDERLINE_LIGHT
+                        : TextTheme.NAVIGATOR_UNDERLINE_DARK}
                     size={TextSize.MENU_CAPS_DESKTOP}
                     onClick={() => onClickNavigation(navigationMenuNames.FOR_STUDENTS)}
                     onMouseEnter={() => onMouseEnterNavigation(navigationMenuNames.FOR_STUDENTS)}
@@ -138,7 +144,9 @@ export const HeaderNavigatorDesktop = memo((props: HeaderNavigatorDesktopProps) 
                     {t('СТУДЕНТАМ')}
                 </Text>
                 <Text
-                    theme={theme === HeaderNavigatorDesktopTheme.LIGHT ? TextTheme.HEADER_LIGHT : TextTheme.HEADER_DARK}
+                    theme={theme === HeaderNavigatorDesktopTheme.LIGHT
+                        ? TextTheme.NAVIGATOR_UNDERLINE_LIGHT
+                        : TextTheme.NAVIGATOR_UNDERLINE_DARK}
                     size={TextSize.MENU_CAPS_DESKTOP}
                     onClick={() => onClickNavigation(navigationMenuNames.SCIENCE)}
                     onMouseEnter={() => onMouseEnterNavigation(navigationMenuNames.SCIENCE)}
@@ -146,7 +154,9 @@ export const HeaderNavigatorDesktop = memo((props: HeaderNavigatorDesktopProps) 
                     {t('НАУКА')}
                 </Text>
                 <Text
-                    theme={theme === HeaderNavigatorDesktopTheme.LIGHT ? TextTheme.HEADER_LIGHT : TextTheme.HEADER_DARK}
+                    theme={theme === HeaderNavigatorDesktopTheme.LIGHT
+                        ? TextTheme.NAVIGATOR_UNDERLINE_LIGHT
+                        : TextTheme.NAVIGATOR_UNDERLINE_DARK}
                     size={TextSize.MENU_CAPS_DESKTOP}
                     onClick={() => onClickNavigation(navigationMenuNames.COOPERATION)}
                     onMouseEnter={() => onMouseEnterNavigation(navigationMenuNames.COOPERATION)}

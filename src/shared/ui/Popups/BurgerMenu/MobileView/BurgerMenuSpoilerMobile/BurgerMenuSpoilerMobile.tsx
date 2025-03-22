@@ -65,7 +65,7 @@ export const BurgerMenuSpoilerMobile = memo((props: BurgerMenuSpoilerMobileProps
                 className={cls.spoilerSummary}
             >
                 <Text
-                    theme={TextTheme.HEADER_LIGHT}
+                    theme={TextTheme.WHITE}
                     size={TextSize.MENU_CAPS_DESKTOP}
                 >
                     {t(data.title.toUpperCase())}
@@ -111,7 +111,7 @@ export const BurgerMenuSpoilerMobile = memo((props: BurgerMenuSpoilerMobileProps
                                             maxW
                                         >
                                             <AppLink
-                                                theme={AppLinkTheme.BURGER_MENU_ARROW}
+                                                theme={AppLinkTheme.BURGER_MENU_MAIN_LINK_SPOILER}
                                                 to={section.link}
                                             >
                                                 {t(section.name)}
@@ -123,7 +123,7 @@ export const BurgerMenuSpoilerMobile = memo((props: BurgerMenuSpoilerMobileProps
                                                 >
                                                     {section.subsections.map((subsection) => (
                                                         <AppLink
-                                                            theme={AppLinkTheme.BURGER_MENU_SUBSECTION}
+                                                            theme={AppLinkTheme.BURGER_MENU_SUBSECTION_LINK_SPOILER}
                                                             to={subsection.link}
                                                             className={cls.subsection}
                                                         >
@@ -148,7 +148,7 @@ export const BurgerMenuSpoilerMobile = memo((props: BurgerMenuSpoilerMobileProps
                                             maxW
                                         >
                                             <AppLink
-                                                theme={AppLinkTheme.BURGER_MENU_ARROW}
+                                                theme={AppLinkTheme.BURGER_MENU_MAIN_LINK_SPOILER}
                                                 to={section.link}
                                             >
                                                 {t(section.name)}
@@ -160,7 +160,7 @@ export const BurgerMenuSpoilerMobile = memo((props: BurgerMenuSpoilerMobileProps
                                                 >
                                                     {section.subsections.map((subsection) => (
                                                         <AppLink
-                                                            theme={AppLinkTheme.BURGER_MENU_SUBSECTION}
+                                                            theme={AppLinkTheme.BURGER_MENU_SUBSECTION_LINK_SPOILER}
                                                             to={subsection.link}
                                                             className={cls.subsection}
                                                         >
@@ -185,7 +185,7 @@ export const BurgerMenuSpoilerMobile = memo((props: BurgerMenuSpoilerMobileProps
                                             maxW
                                         >
                                             <AppLink
-                                                theme={AppLinkTheme.BURGER_MENU_ARROW}
+                                                theme={AppLinkTheme.BURGER_MENU_MAIN_LINK_SPOILER}
                                                 to={section.link}
                                             >
                                                 {t(section.name)}
@@ -197,7 +197,7 @@ export const BurgerMenuSpoilerMobile = memo((props: BurgerMenuSpoilerMobileProps
                                                 >
                                                     {section.subsections.map((subsection) => (
                                                         <AppLink
-                                                            theme={AppLinkTheme.BURGER_MENU_SUBSECTION}
+                                                            theme={AppLinkTheme.BURGER_MENU_SUBSECTION_LINK_SPOILER}
                                                             to={subsection.link}
                                                             className={cls.subsection}
                                                         >

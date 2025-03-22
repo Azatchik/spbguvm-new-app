@@ -19,9 +19,10 @@ export enum ThemeSwitcherTheme {
 interface ThemeSwitcherProps {
     className?: string;
     theme: ThemeSwitcherTheme;
+    isMobile?: boolean;
 }
 
-export const ThemeSwitcher = memo(({ className, theme }: ThemeSwitcherProps) => {
+export const ThemeSwitcher = memo(({ className, theme, isMobile = false }: ThemeSwitcherProps) => {
     const { toggleTheme } = useTheme();
     const { t } = useTranslation();
     const [isHoverTooltip, bindIsHoverTooltip] = useHover();
@@ -35,12 +36,14 @@ export const ThemeSwitcher = memo(({ className, theme }: ThemeSwitcherProps) => 
             className={classNames(cls.ThemeSwitcher, {}, [className, cls[theme]])}
             onClick={onToggle}
         >
-            <Tooltip
-                isVisible={isHoverTooltip}
-                className={cls.tooltipEye}
-            >
-                {t('Версия для слабовидящих')}
-            </Tooltip>
+            {!isMobile && (
+                <Tooltip
+                    isVisible={isHoverTooltip}
+                    className={cls.tooltipEye}
+                >
+                    {t('Версия для слабовидящих')}
+                </Tooltip>
+            )}
             <Icon
                 Svg={theme === ThemeSwitcherTheme.LIGHT
                     ? eyeLightDefaultIcon

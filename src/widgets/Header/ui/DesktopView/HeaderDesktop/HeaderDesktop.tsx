@@ -49,24 +49,24 @@ export const HeaderDesktop = memo((props: HeaderDesktopProps) => {
                     <HStack className={cls.links} gap="24">
                         <AppLink
                             theme={headerTheme === HeaderDesktopTheme.LIGHT
-                                ? AppLinkTheme.HEADER_LIGHT
-                                : AppLinkTheme.HEADER_DARK}
+                                ? AppLinkTheme.NAVIGATOR_OPACITY_LIGHT
+                                : AppLinkTheme.NAVIGATOR_OPACITY_DARK}
                             to="#"
                         >
                             {t('Контакты')}
                         </AppLink>
                         <AppLink
                             theme={headerTheme === HeaderDesktopTheme.LIGHT
-                                ? AppLinkTheme.HEADER_LIGHT
-                                : AppLinkTheme.HEADER_DARK}
+                                ? AppLinkTheme.NAVIGATOR_OPACITY_LIGHT
+                                : AppLinkTheme.NAVIGATOR_OPACITY_DARK}
                             to="#"
                         >
                             {t('Медиа-центр')}
                         </AppLink>
                         <AppLink
                             theme={headerTheme === HeaderDesktopTheme.LIGHT
-                                ? AppLinkTheme.HEADER_LIGHT
-                                : AppLinkTheme.HEADER_DARK}
+                                ? AppLinkTheme.NAVIGATOR_OPACITY_LIGHT
+                                : AppLinkTheme.NAVIGATOR_OPACITY_DARK}
                             to="#"
                         >
                             {t('Нормативные документы')}

@@ -24,7 +24,11 @@ function App() {
     }, []);
 
     useEffect(() => {
-        document.body.className = theme;
+        document.body.classList.add(theme);
+
+        return () => {
+            document.body.classList.remove(theme);
+        };
     }, [theme]);
 
     if (view === Views.DESKTOP) {

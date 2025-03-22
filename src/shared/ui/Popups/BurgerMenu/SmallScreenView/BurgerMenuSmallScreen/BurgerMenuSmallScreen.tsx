@@ -140,19 +140,19 @@ export const BurgerMenuSmallScreen = memo((props: BurgerMenuSmallScreenProps) =>
                                                     gap="25"
                                                 >
                                                     <AppLink
-                                                        theme={AppLinkTheme.HEADER_LIGHT}
+                                                        theme={AppLinkTheme.NAVIGATOR_OPACITY_LIGHT}
                                                         to="#"
                                                     >
                                                         {t('Контакты')}
                                                     </AppLink>
                                                     <AppLink
-                                                        theme={AppLinkTheme.HEADER_LIGHT}
+                                                        theme={AppLinkTheme.NAVIGATOR_OPACITY_LIGHT}
                                                         to="#"
                                                     >
                                                         {t('Медиа-центр')}
                                                     </AppLink>
                                                     <AppLink
-                                                        theme={AppLinkTheme.HEADER_LIGHT}
+                                                        theme={AppLinkTheme.NAVIGATOR_OPACITY_LIGHT}
                                                         to="#"
                                                     >
                                                         {t('Нормативные документы')}

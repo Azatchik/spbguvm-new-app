@@ -27,8 +27,8 @@ export enum TextTheme {
     GREY_LIGHT = 'grey_light',
     BLUE_LIGHT2 = 'blue_light2',
     BLUE_LIGHT = 'blue_light',
-    HEADER_LIGHT = 'header_light',
-    HEADER_DARK = 'header_dark',
+    NAVIGATOR_UNDERLINE_LIGHT = 'navigator_underline_light',
+    NAVIGATOR_UNDERLINE_DARK = 'navigator_underline_dark',
 }
 
 export enum TextAlign {
@@ -108,7 +108,8 @@ export const Text = memo((props: TextProps) => {
     } = props;
 
     const TextTag = mapSizeToTextTag[size];
-    const isThemeHeader = theme === TextTheme.HEADER_LIGHT || theme === TextTheme.HEADER_DARK;
+    const isThemeNavigator = theme === TextTheme.NAVIGATOR_UNDERLINE_LIGHT
+        || theme === TextTheme.NAVIGATOR_UNDERLINE_DARK;
 
     const classes = [
         className,
@@ -131,7 +132,7 @@ export const Text = memo((props: TextProps) => {
             style={style}
             {...otherProps}
         >
-            {isThemeHeader && (
+            {isThemeNavigator && (
                 <span className={cls.borderBottom} />
             )}
             {children}

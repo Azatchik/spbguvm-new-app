@@ -14,8 +14,12 @@ import rutubeIconWhiteHovered from 'shared/assets/icons/rutube-icon-white-hovere
 import { Link, LinkTheme } from 'shared/ui/Link/Link';
 import { Icon, IconTheme } from 'shared/ui/Icon/Icon';
 import { Transition } from 'react-transition-group';
-import cls from './BurgerMenuMobile.module.scss';
+import { LangSwitcher, LangSwitcherTheme } from 'widgets/LangSwitcher';
+import { ThemeSwitcher, ThemeSwitcherTheme } from 'widgets/ThemeSwitcher';
+import searchLightDefaultIcon from 'shared/assets/icons/search-light-default.svg';
+import searchLightHoveredIcon from 'shared/assets/icons/search-light-hovered.svg';
 import { BurgerMenuSpoilerMobile } from '../BurgerMenuSpoilerMobile/BurgerMenuSpoilerMobile';
+import cls from './BurgerMenuMobile.module.scss';
 
 interface Subsection {
     name: string;
@@ -115,7 +119,6 @@ export const BurgerMenuMobile = memo((props: BurgerMenuMobileProps) => {
                                         maxW
                                         maxH
                                         justify="between"
-                                        gap="50"
                                     >
                                         <VStack
                                             className={cls.spoilersWrapper}
@@ -129,43 +132,50 @@ export const BurgerMenuMobile = memo((props: BurgerMenuMobileProps) => {
                                         </VStack>
                                         <VStack
                                             maxW
-                                            gap="40"
+                                            gap="20"
                                         >
                                             <HStack
-                                                justify="between"
-                                                gap="50"
-                                                maxW
+                                                gap="20"
                                             >
-                                                <HStack
-                                                    gap="25"
-                                                >
-                                                    <AppLink
-                                                        theme={AppLinkTheme.HEADER_LIGHT}
-                                                        to="#"
-                                                    >
-                                                        {t('Контакты')}
-                                                    </AppLink>
-                                                    <AppLink
-                                                        theme={AppLinkTheme.HEADER_LIGHT}
-                                                        to="#"
-                                                    >
-                                                        {t('Медиа-центр')}
-                                                    </AppLink>
-                                                    <AppLink
-                                                        theme={AppLinkTheme.HEADER_LIGHT}
-                                                        to="#"
-                                                    >
-                                                        {t('Нормативные документы')}
-                                                    </AppLink>
-                                                </HStack>
-                                                <Button
-                                                    theme={ButtonTheme.PRIMARY_WHITE_FILL}
-                                                    arrowPosition={ArrowPosition.ARROW_RIGHT}
-                                                    width="200"
-                                                >
-                                                    {t('Приемная кампания')}
-                                                </Button>
+                                                <ThemeSwitcher
+                                                    theme={ThemeSwitcherTheme.LIGHT}
+                                                    isMobile
+                                                />
+                                                <Icon
+                                                    Svg={searchLightDefaultIcon}
+                                                    HoveredSvg={searchLightHoveredIcon}
+                                                    theme={IconTheme.CLEAN}
+                                                    style={{ cursor: 'pointer' }}
+                                                />
+                                                <LangSwitcher
+                                                    theme={LangSwitcherTheme.LIGHT}
+                                                />
                                             </HStack>
+                                            <AppLink
+                                                theme={AppLinkTheme.NAVIGATOR_OPACITY_LIGHT}
+                                                to="#"
+                                            >
+                                                {t('Контакты')}
+                                            </AppLink>
+                                            <AppLink
+                                                theme={AppLinkTheme.NAVIGATOR_OPACITY_LIGHT}
+                                                to="#"
+                                            >
+                                                {t('Медиа-центр')}
+                                            </AppLink>
+                                            <AppLink
+                                                theme={AppLinkTheme.NAVIGATOR_OPACITY_LIGHT}
+                                                to="#"
+                                            >
+                                                {t('Нормативные документы')}
+                                            </AppLink>
+                                            <Button
+                                                theme={ButtonTheme.PRIMARY_WHITE_FILL}
+                                                arrowPosition={ArrowPosition.ARROW_RIGHT}
+                                                width="200"
+                                            >
+                                                {t('Приемная кампания')}
+                                            </Button>
                                             <HStack
                                                 gap="15"
                                             >

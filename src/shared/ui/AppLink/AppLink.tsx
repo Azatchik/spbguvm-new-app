@@ -8,12 +8,12 @@ import cls from './AppLink.module.scss';
 
 export enum AppLinkTheme {
     FOOTER = 'footer',
-    HEADER_LIGHT = 'header_light',
-    HEADER_DARK = 'header_dark',
+    NAVIGATOR_OPACITY_LIGHT = 'navigator_opacity_light',
+    NAVIGATOR_OPACITY_DARK = 'navigator_opacity_dark',
     MENU_ARROW = 'menu_arrow',
-    BURGER_MENU_ARROW = 'burger_menu_arrow',
-    BURGER_MENU_SUBSECTION = 'burger_menu_subsection',
     MENU_SUBSECTION = 'menu_subsection',
+    BURGER_MENU_MAIN_LINK_SPOILER = 'burger_menu_main_link_spoiler',
+    BURGER_MENU_SUBSECTION_LINK_SPOILER = 'burger_menu_subsection_link_spoiler',
     CLEAN = 'clean',
 }
 
