@@ -119,6 +119,7 @@ export const BurgerMenuMobile = memo((props: BurgerMenuMobileProps) => {
                                         maxW
                                         maxH
                                         justify="between"
+                                        gap="50"
                                     >
                                         <VStack
                                             className={cls.spoilersWrapper}
