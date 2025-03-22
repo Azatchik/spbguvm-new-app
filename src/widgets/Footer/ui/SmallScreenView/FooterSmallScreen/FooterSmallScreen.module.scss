@@ -1,9 +1,10 @@
 .FooterSmallScreen {
+    display: flex;
+    justify-content: center;
     background: var(--blue-deep);
-    height: 732px;
-}
-
-.rightBlocks {
-    height: 632px;
+    height: 1011px;
+    width: 100%;
+    padding-block: 50px;
+    padding-inline: 60px;
 }
 

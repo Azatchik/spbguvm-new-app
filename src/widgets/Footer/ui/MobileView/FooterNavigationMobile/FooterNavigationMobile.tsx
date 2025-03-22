@@ -17,7 +17,7 @@ export const FooterNavigationMobile = memo((props: FooterNavigationMobileProps) 
     return (
         <VStack
             className={classNames(cls.FooterNavigationMobile, {}, [className])}
-            gap="40"
+            gap="20"
         >
             <Text
                 theme={TextTheme.BLUE_GREY}

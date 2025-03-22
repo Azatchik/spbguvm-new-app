@@ -24,7 +24,7 @@ export const FooterContactsMobile = memo((props: FooterContactsMobileProps) => {
     return (
         <VStack
             className={classNames(cls.FooterContactsMobile, {}, [className])}
-            gap="40"
+            gap="20"
         >
             <Text
                 theme={TextTheme.BLUE_GREY}

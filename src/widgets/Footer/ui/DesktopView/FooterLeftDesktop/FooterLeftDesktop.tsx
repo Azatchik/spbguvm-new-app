@@ -82,7 +82,7 @@ export const FooterLeftDesktop = memo((props: FooterLeftDesktopProps) => {
                 <Text
                     theme={TextTheme.WHITE}
                     size={TextSize.BODY_DESKTOP}
-                    opacity="70"
+                    opacity="60"
                 >
                     {t('2025 © СПБГУВМ. Все права защищены')}
                 </Text>
